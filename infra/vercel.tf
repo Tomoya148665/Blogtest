@@ -22,8 +22,8 @@ resource "vercel_project" "gorlem" {
   git_repository = {
     type = "github"
     repo = "wrexiv/jetgee"
+    branch = "main"
   }
-  root_directory = "frontend"
   environment = [
     {
       key    = "API_URL"
