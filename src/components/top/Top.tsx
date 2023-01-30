@@ -1,5 +1,9 @@
 const Top = () => {
-  return <div>Top Page です</div>;
+  return (
+    <div>
+      <div>Top 画面！！</div>
+    </div>
+  );
 };
 
 export default Top;
