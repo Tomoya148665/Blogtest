@@ -9,7 +9,7 @@ const Layout = ({ pathname, children }: PropsType) => {
   const firstPath = pathname.split("/")[1];
   return (
     <div>
-      <div className="navbar bg-base-100 border-b">
+      <div className="navbar bg-base-100 bg-white shadow-sm">
         <div className="flex-1">
           <a className="btn btn-ghost normal-case text-xl">jetGEE</a>
         </div>

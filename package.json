@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.5",
+    "@astrojs/image": "^0.13.0",
     "@astrojs/react": "^2.0.1",
     "@astrojs/tailwind": "^3.0.0",
     "@graphql-codegen/typescript": "^2.8.7",

@@ -5,4 +5,14 @@ module.exports = {
     extend: {},
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          ...require("daisyui/src/colors/themes")["[data-theme=corporate]"],
+          "base-100": "#fbfbfb",
+        },
+      },
+    ],
+  },
 };
