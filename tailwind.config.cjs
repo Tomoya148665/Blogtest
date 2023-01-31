@@ -11,6 +11,8 @@ module.exports = {
         mytheme: {
           ...require("daisyui/src/colors/themes")["[data-theme=corporate]"],
           "base-100": "#fbfbfb",
+          primary: "#d3182d",
+          "-btn-text-color": "white",
         },
       },
     ],

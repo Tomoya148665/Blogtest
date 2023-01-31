@@ -9,9 +9,11 @@ const Layout = ({ pathname, children }: PropsType) => {
   const firstPath = pathname.split("/")[1];
   return (
     <div>
-      <div className="navbar bg-base-100 bg-white shadow-sm">
+      <div className="navbar bg-white shadow-sm">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">jetGEE</a>
+          {firstPath === "media" && (
+            <img src="/logo.png" className="max-h-[40px] rounded-lg" />
+          )}
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 hidden md:flex">
