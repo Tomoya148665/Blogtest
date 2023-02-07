@@ -1,8 +1,5 @@
 overwrite: true
-schema:
-  - "https://gapi.storyblok.com/v1/api":
-      headers:
-        "Token": ${VITE_STORYBLOK_ACCESS_TOKEN}
+schema: "https://graphql.contentful.com/content/v1/spaces/${VITE_CONTENTFUL_SPACE_ID}/environments/master?access_token=${VITE_CONTENTFUL_PREVIEW_ACCESS_TOKEN}"
 documents: "./graphql/**/*.ts"
 generates:
   types/generated.ts:

@@ -1,0 +1,26 @@
+---
+import PracticeLayout from "@layouts/PracticeLayout.astro";
+import { getLinks, getStory } from "@lib/storyblok.js";
+
+export async function getStaticPaths() {
+  let links = await getLinks();
+  links = Object.values(links);
+
+  return links.map((link: any) => {
+    return {
+      params: { slug: link.slug },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+
+const story = await getStory(slug || "");
+---
+
+<script>
+  import { activateStoryblokBridge } from "@lib/storyblok.js";
+  activateStoryblokBridge();
+</script>
+
+<PracticeLayout story={story} />

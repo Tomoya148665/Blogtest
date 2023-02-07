@@ -13,428 +13,610 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  BlockScalar: any;
-  ISO8601DateTime: any;
-  JsonScalar: any;
+  DateTime: any;
+  Dimension: any;
+  HexColor: any;
+  JSON: any;
+  Quality: any;
 };
 
-export type Alternate = {
-  __typename?: 'Alternate';
-  fullSlug: Scalars['String'];
-  id: Scalars['Int'];
-  isFolder?: Maybe<Scalars['Boolean']>;
-  name: Scalars['String'];
-  parentId?: Maybe<Scalars['Int']>;
-  published: Scalars['Boolean'];
-  slug: Scalars['String'];
-};
-
-export type ArticleComponent = {
-  __typename?: 'ArticleComponent';
-  _editable?: Maybe<Scalars['String']>;
-  _uid?: Maybe<Scalars['String']>;
-  component?: Maybe<Scalars['String']>;
-  content?: Maybe<Scalars['JsonScalar']>;
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type Article = Entry & {
+  __typename?: 'Article';
+  content?: Maybe<ArticleContent>;
+  contentfulMetadata: ContentfulMetadata;
   coverImage?: Maybe<Asset>;
+  linkedFrom?: Maybe<ArticleLinkingCollections>;
+  slug?: Maybe<Scalars['String']>;
+  sys: Sys;
   title?: Maybe<Scalars['String']>;
 };
 
-export type ArticleFilterQuery = {
-  title?: InputMaybe<FilterQueryOperations>;
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleContentArgs = {
+  locale?: InputMaybe<Scalars['String']>;
 };
 
-export type ArticleItem = {
-  __typename?: 'ArticleItem';
-  alternates?: Maybe<Array<Maybe<Alternate>>>;
-  content?: Maybe<ArticleComponent>;
-  created_at?: Maybe<Scalars['String']>;
-  default_full_slug?: Maybe<Scalars['String']>;
-  first_published_at?: Maybe<Scalars['String']>;
-  full_slug?: Maybe<Scalars['String']>;
-  group_id?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  is_startpage?: Maybe<Scalars['Boolean']>;
-  lang?: Maybe<Scalars['String']>;
-  meta_data?: Maybe<Scalars['JsonScalar']>;
-  name?: Maybe<Scalars['String']>;
-  parent_id?: Maybe<Scalars['Int']>;
-  path?: Maybe<Scalars['String']>;
-  position?: Maybe<Scalars['Int']>;
-  published_at?: Maybe<Scalars['String']>;
-  release_id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  sort_by_date?: Maybe<Scalars['String']>;
-  tag_list?: Maybe<Array<Maybe<Scalars['String']>>>;
-  translated_slugs?: Maybe<Array<Maybe<TranslatedSlug>>>;
-  uuid?: Maybe<Scalars['String']>;
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleCoverImageArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type ArticleItems = {
-  __typename?: 'ArticleItems';
-  items?: Maybe<Array<Maybe<ArticleItem>>>;
-  total?: Maybe<Scalars['Int']>;
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type Asset = {
-  __typename?: 'Asset';
-  alt?: Maybe<Scalars['String']>;
-  copyright?: Maybe<Scalars['String']>;
-  filename: Scalars['String'];
-  focus?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleSlugArgs = {
+  locale?: InputMaybe<Scalars['String']>;
 };
 
-export type ContentItem = {
-  __typename?: 'ContentItem';
-  alternates?: Maybe<Array<Maybe<Alternate>>>;
-  content?: Maybe<Scalars['JsonScalar']>;
-  content_string?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
-  default_full_slug?: Maybe<Scalars['String']>;
-  first_published_at?: Maybe<Scalars['String']>;
-  full_slug?: Maybe<Scalars['String']>;
-  group_id?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  is_startpage?: Maybe<Scalars['Boolean']>;
-  lang?: Maybe<Scalars['String']>;
-  meta_data?: Maybe<Scalars['JsonScalar']>;
-  name?: Maybe<Scalars['String']>;
-  parent_id?: Maybe<Scalars['Int']>;
-  path?: Maybe<Scalars['String']>;
-  position?: Maybe<Scalars['Int']>;
-  published_at?: Maybe<Scalars['String']>;
-  release_id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  sort_by_date?: Maybe<Scalars['String']>;
-  tag_list?: Maybe<Array<Maybe<Scalars['String']>>>;
-  translated_slugs?: Maybe<Array<Maybe<TranslatedSlug>>>;
-  uuid?: Maybe<Scalars['String']>;
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleTitleArgs = {
+  locale?: InputMaybe<Scalars['String']>;
 };
 
-export type ContentItems = {
-  __typename?: 'ContentItems';
-  items?: Maybe<Array<Maybe<ContentItem>>>;
-  total?: Maybe<Scalars['Int']>;
-};
-
-export type Datasource = {
-  __typename?: 'Datasource';
-  id: Scalars['Int'];
-  name: Scalars['String'];
-  slug: Scalars['String'];
-};
-
-export type DatasourceEntries = {
-  __typename?: 'DatasourceEntries';
-  items: Array<DatasourceEntry>;
+export type ArticleCollection = {
+  __typename?: 'ArticleCollection';
+  items: Array<Maybe<Article>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
   total: Scalars['Int'];
 };
 
-export type DatasourceEntry = {
-  __typename?: 'DatasourceEntry';
-  dimensionValue?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
-  name: Scalars['String'];
-  value: Scalars['String'];
+export type ArticleContent = {
+  __typename?: 'ArticleContent';
+  json: Scalars['JSON'];
+  links: ArticleContentLinks;
 };
 
-export type Datasources = {
-  __typename?: 'Datasources';
-  items: Array<Datasource>;
+export type ArticleContentAssets = {
+  __typename?: 'ArticleContentAssets';
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
 };
 
-export type FilterQueryOperations = {
-  /** Must match all values of given array */
-  all_in_array?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** Greater than date (Exmples: 2019-03-03 or 2020-03-03T03:03:03) */
-  gt_date?: InputMaybe<Scalars['ISO8601DateTime']>;
-  /** Greater than float value */
-  gt_float?: InputMaybe<Scalars['Float']>;
-  /** Greater than integer value */
-  gt_int?: InputMaybe<Scalars['Int']>;
-  /** Matches exactly one value */
-  in?: InputMaybe<Scalars['String']>;
-  /** Matches any value of given array */
-  in_array?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** Matches exactly one integer value */
-  in_int?: InputMaybe<Scalars['Int']>;
-  /** Matches exactly one value with a wildcard search using * */
-  like?: InputMaybe<Scalars['String']>;
-  /** Less than date (Format: 2019-03-03 or 2020-03-03T03:03:03) */
-  lt_date?: InputMaybe<Scalars['ISO8601DateTime']>;
-  /** Less than float value */
-  lt_float?: InputMaybe<Scalars['Float']>;
-  /** Less than integer value */
-  lt_int?: InputMaybe<Scalars['Int']>;
-  /** Matches all without the given value */
-  not_in?: InputMaybe<Scalars['String']>;
-  /** Matches all without the given value */
-  not_like?: InputMaybe<Scalars['String']>;
+export type ArticleContentEntries = {
+  __typename?: 'ArticleContentEntries';
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
 };
 
-export type LinkEntries = {
-  __typename?: 'LinkEntries';
-  items: Array<LinkEntry>;
+export type ArticleContentLinks = {
+  __typename?: 'ArticleContentLinks';
+  assets: ArticleContentAssets;
+  entries: ArticleContentEntries;
 };
 
-export type LinkEntry = {
-  __typename?: 'LinkEntry';
-  id?: Maybe<Scalars['Int']>;
-  isFolder?: Maybe<Scalars['Boolean']>;
-  isStartpage?: Maybe<Scalars['Boolean']>;
+export type ArticleFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ArticleFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ArticleFilter>>>;
+  content_contains?: InputMaybe<Scalars['String']>;
+  content_exists?: InputMaybe<Scalars['Boolean']>;
+  content_not_contains?: InputMaybe<Scalars['String']>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  coverImage_exists?: InputMaybe<Scalars['Boolean']>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']>;
+  title_contains?: InputMaybe<Scalars['String']>;
+  title_exists?: InputMaybe<Scalars['Boolean']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not?: InputMaybe<Scalars['String']>;
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ArticleLinkingCollections = {
+  __typename?: 'ArticleLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ArticleLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum ArticleOrder {
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type Asset = {
+  __typename?: 'Asset';
+  contentType?: Maybe<Scalars['String']>;
+  contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Int']>;
+  linkedFrom?: Maybe<AssetLinkingCollections>;
+  size?: Maybe<Scalars['Int']>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Int']>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetContentTypeArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetFileNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetHeightArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetSizeArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetTitleArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetUrlArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+  transform?: InputMaybe<ImageTransformOptions>;
+};
+
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetWidthArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+export type AssetCollection = {
+  __typename?: 'AssetCollection';
+  items: Array<Maybe<Asset>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type AssetFilter = {
+  AND?: InputMaybe<Array<InputMaybe<AssetFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<AssetFilter>>>;
+  contentType?: InputMaybe<Scalars['String']>;
+  contentType_contains?: InputMaybe<Scalars['String']>;
+  contentType_exists?: InputMaybe<Scalars['Boolean']>;
+  contentType_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentType_not?: InputMaybe<Scalars['String']>;
+  contentType_not_contains?: InputMaybe<Scalars['String']>;
+  contentType_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  fileName?: InputMaybe<Scalars['String']>;
+  fileName_contains?: InputMaybe<Scalars['String']>;
+  fileName_exists?: InputMaybe<Scalars['Boolean']>;
+  fileName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  fileName_not?: InputMaybe<Scalars['String']>;
+  fileName_not_contains?: InputMaybe<Scalars['String']>;
+  fileName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  height?: InputMaybe<Scalars['Int']>;
+  height_exists?: InputMaybe<Scalars['Boolean']>;
+  height_gt?: InputMaybe<Scalars['Int']>;
+  height_gte?: InputMaybe<Scalars['Int']>;
+  height_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  height_lt?: InputMaybe<Scalars['Int']>;
+  height_lte?: InputMaybe<Scalars['Int']>;
+  height_not?: InputMaybe<Scalars['Int']>;
+  height_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  size?: InputMaybe<Scalars['Int']>;
+  size_exists?: InputMaybe<Scalars['Boolean']>;
+  size_gt?: InputMaybe<Scalars['Int']>;
+  size_gte?: InputMaybe<Scalars['Int']>;
+  size_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  size_lt?: InputMaybe<Scalars['Int']>;
+  size_lte?: InputMaybe<Scalars['Int']>;
+  size_not?: InputMaybe<Scalars['Int']>;
+  size_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']>;
+  title_contains?: InputMaybe<Scalars['String']>;
+  title_exists?: InputMaybe<Scalars['Boolean']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not?: InputMaybe<Scalars['String']>;
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  url?: InputMaybe<Scalars['String']>;
+  url_contains?: InputMaybe<Scalars['String']>;
+  url_exists?: InputMaybe<Scalars['Boolean']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  url_not?: InputMaybe<Scalars['String']>;
+  url_not_contains?: InputMaybe<Scalars['String']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  width?: InputMaybe<Scalars['Int']>;
+  width_exists?: InputMaybe<Scalars['Boolean']>;
+  width_gt?: InputMaybe<Scalars['Int']>;
+  width_gte?: InputMaybe<Scalars['Int']>;
+  width_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  width_lt?: InputMaybe<Scalars['Int']>;
+  width_lte?: InputMaybe<Scalars['Int']>;
+  width_not?: InputMaybe<Scalars['Int']>;
+  width_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+};
+
+export type AssetLinkingCollections = {
+  __typename?: 'AssetLinkingCollections';
+  articleCollection?: Maybe<ArticleCollection>;
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type AssetLinkingCollectionsArticleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type AssetLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum AssetOrder {
+  ContentTypeAsc = 'contentType_ASC',
+  ContentTypeDesc = 'contentType_DESC',
+  FileNameAsc = 'fileName_ASC',
+  FileNameDesc = 'fileName_DESC',
+  HeightAsc = 'height_ASC',
+  HeightDesc = 'height_DESC',
+  SizeAsc = 'size_ASC',
+  SizeDesc = 'size_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC',
+  WidthAsc = 'width_ASC',
+  WidthDesc = 'width_DESC'
+}
+
+export type ContentfulMetadata = {
+  __typename?: 'ContentfulMetadata';
+  tags: Array<Maybe<ContentfulTag>>;
+};
+
+export type ContentfulMetadataFilter = {
+  tags?: InputMaybe<ContentfulMetadataTagsFilter>;
+  tags_exists?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ContentfulMetadataTagsFilter = {
+  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+/**
+ * Represents a tag entity for finding and organizing content easily.
+ *     Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
+ */
+export type ContentfulTag = {
+  __typename?: 'ContentfulTag';
+  id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  parentId?: Maybe<Scalars['Int']>;
-  position?: Maybe<Scalars['Int']>;
-  published?: Maybe<Scalars['Boolean']>;
-  slug?: Maybe<Scalars['String']>;
-  uuid?: Maybe<Scalars['String']>;
 };
 
-export type PageComponent = {
-  __typename?: 'PageComponent';
-  _editable?: Maybe<Scalars['String']>;
-  _uid?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['BlockScalar']>;
-  component?: Maybe<Scalars['String']>;
+export type Entry = {
+  contentfulMetadata: ContentfulMetadata;
+  sys: Sys;
 };
 
-export type PageItem = {
-  __typename?: 'PageItem';
-  alternates?: Maybe<Array<Maybe<Alternate>>>;
-  content?: Maybe<PageComponent>;
-  created_at?: Maybe<Scalars['String']>;
-  default_full_slug?: Maybe<Scalars['String']>;
-  first_published_at?: Maybe<Scalars['String']>;
-  full_slug?: Maybe<Scalars['String']>;
-  group_id?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  is_startpage?: Maybe<Scalars['Boolean']>;
-  lang?: Maybe<Scalars['String']>;
-  meta_data?: Maybe<Scalars['JsonScalar']>;
-  name?: Maybe<Scalars['String']>;
-  parent_id?: Maybe<Scalars['Int']>;
-  path?: Maybe<Scalars['String']>;
-  position?: Maybe<Scalars['Int']>;
-  published_at?: Maybe<Scalars['String']>;
-  release_id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  sort_by_date?: Maybe<Scalars['String']>;
-  tag_list?: Maybe<Array<Maybe<Scalars['String']>>>;
-  translated_slugs?: Maybe<Array<Maybe<TranslatedSlug>>>;
-  uuid?: Maybe<Scalars['String']>;
+export type EntryCollection = {
+  __typename?: 'EntryCollection';
+  items: Array<Maybe<Entry>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
 };
 
-export type PageItems = {
-  __typename?: 'PageItems';
-  items?: Maybe<Array<Maybe<PageItem>>>;
-  total?: Maybe<Scalars['Int']>;
+export type EntryFilter = {
+  AND?: InputMaybe<Array<InputMaybe<EntryFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<EntryFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  sys?: InputMaybe<SysFilter>;
 };
 
-export type QueryType = {
-  __typename?: 'QueryType';
-  ArticleItem?: Maybe<ArticleItem>;
-  ArticleItems?: Maybe<ArticleItems>;
-  ContentNode?: Maybe<ContentItem>;
-  ContentNodes?: Maybe<ContentItems>;
-  DatasourceEntries?: Maybe<DatasourceEntries>;
-  Datasources?: Maybe<Datasources>;
-  Links?: Maybe<LinkEntries>;
-  PageItem?: Maybe<PageItem>;
-  PageItems?: Maybe<PageItems>;
-  RateLimit?: Maybe<RateLimit>;
-  Space?: Maybe<Space>;
-  Tags?: Maybe<Tags>;
+export enum EntryOrder {
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum ImageFormat {
+  Avif = 'AVIF',
+  /** JPG image format. */
+  Jpg = 'JPG',
+  /**
+   * Progressive JPG format stores multiple passes of an image in progressively higher detail.
+   *         When a progressive image is loading, the viewer will first see a lower quality pixelated version which
+   *         will gradually improve in detail, until the image is fully downloaded. This is to display an image as
+   *         early as possible to make the layout look as designed.
+   */
+  JpgProgressive = 'JPG_PROGRESSIVE',
+  /** PNG image format */
+  Png = 'PNG',
+  /**
+   * 8-bit PNG images support up to 256 colors and weigh less than the standard 24-bit PNG equivalent.
+   *         The 8-bit PNG format is mostly used for simple images, such as icons or logos.
+   */
+  Png8 = 'PNG8',
+  /** WebP image format. */
+  Webp = 'WEBP'
+}
+
+export enum ImageResizeFocus {
+  /** Focus the resizing on the bottom. */
+  Bottom = 'BOTTOM',
+  /** Focus the resizing on the bottom left. */
+  BottomLeft = 'BOTTOM_LEFT',
+  /** Focus the resizing on the bottom right. */
+  BottomRight = 'BOTTOM_RIGHT',
+  /** Focus the resizing on the center. */
+  Center = 'CENTER',
+  /** Focus the resizing on the largest face. */
+  Face = 'FACE',
+  /** Focus the resizing on the area containing all the faces. */
+  Faces = 'FACES',
+  /** Focus the resizing on the left. */
+  Left = 'LEFT',
+  /** Focus the resizing on the right. */
+  Right = 'RIGHT',
+  /** Focus the resizing on the top. */
+  Top = 'TOP',
+  /** Focus the resizing on the top left. */
+  TopLeft = 'TOP_LEFT',
+  /** Focus the resizing on the top right. */
+  TopRight = 'TOP_RIGHT'
+}
+
+export enum ImageResizeStrategy {
+  /** Crops a part of the original image to fit into the specified dimensions. */
+  Crop = 'CROP',
+  /** Resizes the image to the specified dimensions, cropping the image if needed. */
+  Fill = 'FILL',
+  /** Resizes the image to fit into the specified dimensions. */
+  Fit = 'FIT',
+  /**
+   * Resizes the image to the specified dimensions, padding the image if needed.
+   *         Uses desired background color as padding color.
+   */
+  Pad = 'PAD',
+  /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
+  Scale = 'SCALE',
+  /** Creates a thumbnail from the image. */
+  Thumb = 'THUMB'
+}
+
+export type ImageTransformOptions = {
+  /**
+   * Desired background color, used with corner radius or `PAD` resize strategy.
+   *         Defaults to transparent (for `PNG`, `PNG8` and `WEBP`) or white (for `JPG` and `JPG_PROGRESSIVE`).
+   */
+  backgroundColor?: InputMaybe<Scalars['HexColor']>;
+  /**
+   * Desired corner radius in pixels.
+   *         Results in an image with rounded corners (pass `-1` for a full circle/ellipse).
+   *         Defaults to `0`. Uses desired background color as padding color,
+   *         unless the format is `JPG` or `JPG_PROGRESSIVE` and resize strategy is `PAD`, then defaults to white.
+   */
+  cornerRadius?: InputMaybe<Scalars['Int']>;
+  /** Desired image format. Defaults to the original image format. */
+  format?: InputMaybe<ImageFormat>;
+  /** Desired height in pixels. Defaults to the original image height. */
+  height?: InputMaybe<Scalars['Dimension']>;
+  /**
+   * Desired quality of the image in percents.
+   *         Used for `PNG8`, `JPG`, `JPG_PROGRESSIVE` and `WEBP` formats.
+   */
+  quality?: InputMaybe<Scalars['Quality']>;
+  /** Desired resize focus area. Defaults to `CENTER`. */
+  resizeFocus?: InputMaybe<ImageResizeFocus>;
+  /** Desired resize strategy. Defaults to `FIT`. */
+  resizeStrategy?: InputMaybe<ImageResizeStrategy>;
+  /** Desired width in pixels. Defaults to the original image width. */
+  width?: InputMaybe<Scalars['Dimension']>;
 };
 
-
-export type QueryTypeArticleItemArgs = {
-  find_by?: InputMaybe<Scalars['String']>;
-  from_release?: InputMaybe<Scalars['Int']>;
-  id: Scalars['ID'];
-  language?: InputMaybe<Scalars['String']>;
-  resolve_links?: InputMaybe<Scalars['String']>;
-  resolve_relations?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryTypeArticleItemsArgs = {
-  by_slugs?: InputMaybe<Scalars['String']>;
-  by_uuids?: InputMaybe<Scalars['String']>;
-  by_uuids_ordered?: InputMaybe<Scalars['String']>;
-  excluding_fields?: InputMaybe<Scalars['String']>;
-  excluding_ids?: InputMaybe<Scalars['String']>;
-  excluding_slugs?: InputMaybe<Scalars['String']>;
-  fallback_lang?: InputMaybe<Scalars['String']>;
-  filter_query?: InputMaybe<Scalars['JsonScalar']>;
-  filter_query_v2?: InputMaybe<ArticleFilterQuery>;
-  first_published_at_gt?: InputMaybe<Scalars['String']>;
-  first_published_at_lt?: InputMaybe<Scalars['String']>;
-  from_release?: InputMaybe<Scalars['String']>;
-  is_startpage?: InputMaybe<Scalars['String']>;
-  language?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Int']>;
-  per_page?: InputMaybe<Scalars['Int']>;
-  published_at_gt?: InputMaybe<Scalars['String']>;
-  published_at_lt?: InputMaybe<Scalars['String']>;
-  resolve_links?: InputMaybe<Scalars['String']>;
-  resolve_relations?: InputMaybe<Scalars['String']>;
-  search_term?: InputMaybe<Scalars['String']>;
-  sort_by?: InputMaybe<Scalars['String']>;
-  starts_with?: InputMaybe<Scalars['String']>;
-  with_tag?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryTypeContentNodeArgs = {
-  find_by?: InputMaybe<Scalars['String']>;
-  from_release?: InputMaybe<Scalars['Int']>;
-  id: Scalars['ID'];
-  language?: InputMaybe<Scalars['String']>;
-  resolve_links?: InputMaybe<Scalars['String']>;
-  resolve_relations?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryTypeContentNodesArgs = {
-  by_slugs?: InputMaybe<Scalars['String']>;
-  by_uuids?: InputMaybe<Scalars['String']>;
-  by_uuids_ordered?: InputMaybe<Scalars['String']>;
-  excluding_fields?: InputMaybe<Scalars['String']>;
-  excluding_ids?: InputMaybe<Scalars['String']>;
-  excluding_slugs?: InputMaybe<Scalars['String']>;
-  fallback_lang?: InputMaybe<Scalars['String']>;
-  filter_query?: InputMaybe<Scalars['JsonScalar']>;
-  first_published_at_gt?: InputMaybe<Scalars['String']>;
-  first_published_at_lt?: InputMaybe<Scalars['String']>;
-  from_release?: InputMaybe<Scalars['String']>;
-  is_startpage?: InputMaybe<Scalars['String']>;
-  language?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Int']>;
-  per_page?: InputMaybe<Scalars['Int']>;
-  published_at_gt?: InputMaybe<Scalars['String']>;
-  published_at_lt?: InputMaybe<Scalars['String']>;
-  resolve_links?: InputMaybe<Scalars['String']>;
-  resolve_relations?: InputMaybe<Scalars['String']>;
-  search_term?: InputMaybe<Scalars['String']>;
-  sort_by?: InputMaybe<Scalars['String']>;
-  starts_with?: InputMaybe<Scalars['String']>;
-  with_tag?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryTypeDatasourceEntriesArgs = {
-  datasource?: InputMaybe<Scalars['String']>;
-  dimension?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Int']>;
-  per_page?: InputMaybe<Scalars['Int']>;
+export type Query = {
+  __typename?: 'Query';
+  article?: Maybe<Article>;
+  articleCollection?: Maybe<ArticleCollection>;
+  asset?: Maybe<Asset>;
+  assetCollection?: Maybe<AssetCollection>;
+  entryCollection?: Maybe<EntryCollection>;
 };
 
 
-export type QueryTypeDatasourcesArgs = {
-  by_ids?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  search?: InputMaybe<Scalars['String']>;
+export type QueryArticleArgs = {
+  id: Scalars['String'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type QueryTypeLinksArgs = {
-  paginated?: InputMaybe<Scalars['Boolean']>;
-  starts_with?: InputMaybe<Scalars['String']>;
+export type QueryArticleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<ArticleOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ArticleFilter>;
 };
 
 
-export type QueryTypePageItemArgs = {
-  find_by?: InputMaybe<Scalars['String']>;
-  from_release?: InputMaybe<Scalars['Int']>;
-  id: Scalars['ID'];
-  language?: InputMaybe<Scalars['String']>;
-  resolve_links?: InputMaybe<Scalars['String']>;
-  resolve_relations?: InputMaybe<Scalars['String']>;
+export type QueryAssetArgs = {
+  id: Scalars['String'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type QueryTypePageItemsArgs = {
-  by_slugs?: InputMaybe<Scalars['String']>;
-  by_uuids?: InputMaybe<Scalars['String']>;
-  by_uuids_ordered?: InputMaybe<Scalars['String']>;
-  excluding_fields?: InputMaybe<Scalars['String']>;
-  excluding_ids?: InputMaybe<Scalars['String']>;
-  excluding_slugs?: InputMaybe<Scalars['String']>;
-  fallback_lang?: InputMaybe<Scalars['String']>;
-  filter_query?: InputMaybe<Scalars['JsonScalar']>;
-  first_published_at_gt?: InputMaybe<Scalars['String']>;
-  first_published_at_lt?: InputMaybe<Scalars['String']>;
-  from_release?: InputMaybe<Scalars['String']>;
-  is_startpage?: InputMaybe<Scalars['String']>;
-  language?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Int']>;
-  per_page?: InputMaybe<Scalars['Int']>;
-  published_at_gt?: InputMaybe<Scalars['String']>;
-  published_at_lt?: InputMaybe<Scalars['String']>;
-  resolve_links?: InputMaybe<Scalars['String']>;
-  resolve_relations?: InputMaybe<Scalars['String']>;
-  search_term?: InputMaybe<Scalars['String']>;
-  sort_by?: InputMaybe<Scalars['String']>;
-  starts_with?: InputMaybe<Scalars['String']>;
-  with_tag?: InputMaybe<Scalars['String']>;
+export type QueryAssetCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<AssetOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<AssetFilter>;
 };
 
 
-export type QueryTypeTagsArgs = {
-  starts_with?: InputMaybe<Scalars['String']>;
+export type QueryEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<EntryOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<EntryFilter>;
 };
 
-export type RateLimit = {
-  __typename?: 'RateLimit';
-  maxCost: Scalars['Int'];
+export type Sys = {
+  __typename?: 'Sys';
+  environmentId: Scalars['String'];
+  firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  id: Scalars['String'];
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  publishedVersion?: Maybe<Scalars['Int']>;
+  spaceId: Scalars['String'];
 };
 
-export type Space = {
-  __typename?: 'Space';
-  domain: Scalars['String'];
-  id: Scalars['Int'];
-  languageCodes: Array<Maybe<Scalars['String']>>;
-  name: Scalars['String'];
-  version: Scalars['Int'];
-};
-
-export type Tag = {
-  __typename?: 'Tag';
-  name: Scalars['String'];
-  taggingsCount: Scalars['Int'];
-};
-
-export type Tags = {
-  __typename?: 'Tags';
-  items: Array<Tag>;
-};
-
-export type TranslatedSlug = {
-  __typename?: 'TranslatedSlug';
-  lang: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
+export type SysFilter = {
+  firstPublishedAt?: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_exists?: InputMaybe<Scalars['Boolean']>;
+  firstPublishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  firstPublishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  id?: InputMaybe<Scalars['String']>;
+  id_contains?: InputMaybe<Scalars['String']>;
+  id_exists?: InputMaybe<Scalars['Boolean']>;
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_not?: InputMaybe<Scalars['String']>;
+  id_not_contains?: InputMaybe<Scalars['String']>;
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  publishedAt_exists?: InputMaybe<Scalars['Boolean']>;
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedVersion?: InputMaybe<Scalars['Float']>;
+  publishedVersion_exists?: InputMaybe<Scalars['Boolean']>;
+  publishedVersion_gt?: InputMaybe<Scalars['Float']>;
+  publishedVersion_gte?: InputMaybe<Scalars['Float']>;
+  publishedVersion_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  publishedVersion_lt?: InputMaybe<Scalars['Float']>;
+  publishedVersion_lte?: InputMaybe<Scalars['Float']>;
+  publishedVersion_not?: InputMaybe<Scalars['Float']>;
+  publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
 export type ListArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ListArticlesQuery = { __typename?: 'QueryType', ArticleItems?: { __typename?: 'ArticleItems', items?: Array<{ __typename?: 'ArticleItem', content?: { __typename?: 'ArticleComponent', content?: any | null, title?: string | null, coverImage?: { __typename?: 'Asset', filename: string } | null } | null } | null> | null } | null };
+export type ListArticlesQuery = { __typename?: 'Query', articleCollection?: { __typename?: 'ArticleCollection', total: number, items: Array<{ __typename?: 'Article', title?: string | null, slug?: string | null, coverImage?: { __typename?: 'Asset', url?: string | null } | null, content?: { __typename?: 'ArticleContent', json: any } | null, sys: { __typename?: 'Sys', id: string } } | null> } | null };
 
 
 export const ListArticlesDocument = gql`
     query listArticles {
-  ArticleItems {
+  articleCollection {
     items {
+      title
+      slug
+      coverImage {
+        url
+      }
       content {
-        content
-        title
-        coverImage {
-          filename
-        }
+        json
+      }
+      sys {
+        id
       }
     }
+    total
   }
 }
     `;

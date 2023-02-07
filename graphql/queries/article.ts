@@ -2,16 +2,21 @@ import { gql } from "@apollo/client";
 
 const LIST_ARTICLES = gql`
   query listArticles {
-    ArticleItems {
+    articleCollection {
       items {
+        title
+        slug
+        coverImage {
+          url
+        }
         content {
-          content
-          title
-          coverImage {
-            filename
-          }
+          json
+        }
+        sys {
+          id
         }
       }
+      total
     }
   }
 `;

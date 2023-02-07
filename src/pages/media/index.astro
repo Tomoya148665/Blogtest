@@ -1,34 +1,21 @@
 ---
-import Articles from "../../components/articles/Articles";
-import Layout from "../../layouts/Layout.astro";
-import { useStoryblokApi } from "@storyblok/astro";
-import type { ArticleItem } from "../../../types/generated";
-import type { ArticleType } from "../../../types/entities";
+import { contentfulClient } from "@lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { ArticleCollection } from "types/generated";
 
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories", {
-  version: "published",
+const entries = await contentfulClient.getEntries<ArticleCollection>({
   content_type: "article",
 });
-const articles = data.stories.map((story: ArticleItem): ArticleType => {
-  if (
-    !story.id ||
-    !story.content ||
-    !story.content.title ||
-    !story.content.content ||
-    !story.content.coverImage?.filename
-  )
-    throw new Error("Error");
-  return {
-    id: `${story.id}`,
-    title: story.content.title,
-    content: story.content.content,
-    coverImage: story.content.coverImage.filename,
-  };
-});
+console.log(entries);
 ---
 
-<Layout>
-  <div>メディアのトップ</div>
-  <Articles articles={articles} />
-</Layout>
+<body>
+  {
+    entries.items.map((item) => (
+      <section>
+        <h2>{item.fields.name}</h2>
+        <article set:html={documentToHtmlString(item.fields.content)} />
+      </section>
+    ))
+  }
+</body>

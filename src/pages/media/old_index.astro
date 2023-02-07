@@ -1,0 +1,18 @@
+---
+import Articles from "@components/articles/Articles";
+import Layout from "@layouts/Layout.astro";
+import { useStoryblokApi } from "@storyblok/astro";
+import type { ArticleItem } from "types/generated";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories", {
+  version: "published",
+  content_type: "article",
+});
+const articles = data.stories as ArticleItem[];
+---
+
+<Layout>
+  <h1>記事一覧</h1>
+  <Articles articles={articles} />
+</Layout>

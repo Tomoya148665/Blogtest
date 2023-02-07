@@ -1,18 +1,27 @@
-import type { ArticleType } from "../../../types/entities";
+import type { ArticleItem } from "types/generated";
 
 type PropsType = {
-  articles: ArticleType[];
+  articles: ArticleItem[];
 };
 
 const Articles = ({ articles }: PropsType) => {
+  console.log(articles[0].content?.coverImage);
   return (
-    <div>
-      <div>Articles 画面！！</div>
+    <div className="m-10">
       {articles.map((article) => {
         return (
-          <div key={article.id}>
-            <div>{article.title}</div>
-            <div>{article.coverImage}</div>
+          <div key={article.id} className="card">
+            <div className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img src={article.content?.coverImage?.filename} alt="Shoes" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{article.content?.title}</h2>
+              </div>
+              <button className="btn">
+                <a href={`/media/${article.slug}`}>詳細へ</a>
+              </button>
+            </div>
           </div>
         );
       })}

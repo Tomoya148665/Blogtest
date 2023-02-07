@@ -54,7 +54,7 @@ const Layout = ({ pathname, children }: PropsType) => {
           </ul>
         </div>
       </div>
-      {children}
+      <div className="bg-base-100">{children}</div>
     </div>
   );
 };
