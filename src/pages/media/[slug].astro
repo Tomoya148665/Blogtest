@@ -1,23 +1,24 @@
 ---
-import Article from "@components/articles/Article.astro";
+import { contentfulClient } from "@lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { Article as ArticleType } from "types/generated";
 import Layout from "@layouts/Layout.astro";
-import { getLinks, getStory } from "@lib/storyblok.js";
-import type { ArticleItem } from "types/generated";
+import Article from "@components/articles/Article";
 
 export async function getStaticPaths() {
-  let links = await getLinks();
-  links = Object.values(links);
-
-  return links.map((link: any) => {
-    return {
-      params: { slug: link.slug },
-    };
+  const { items } = await contentfulClient.getEntries<ArticleType>({
+    content_type: "article",
   });
+  const pages = items.map((item) => ({
+    params: { slug: item.fields.slug },
+    props: {
+      article: item,
+    },
+  }));
+  return pages;
 }
 
-const { slug } = Astro.params;
-
-const article: ArticleItem = await getStory(slug || "");
+const { article } = Astro.props;
 ---
 
 <Layout>
