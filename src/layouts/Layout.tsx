@@ -8,7 +8,7 @@ type PropsType = {
 const Layout = ({ pathname, children }: PropsType) => {
   const firstPath = pathname.split("/")[1];
   return (
-    <div>
+    <div className="bg-white">
       <div className="navbar bg-white shadow-sm">
         <div className="flex-1">
           {firstPath === "media" && (

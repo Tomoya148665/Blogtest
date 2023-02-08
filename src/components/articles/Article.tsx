@@ -1,27 +1,23 @@
+import Blocks from "@components/contentful/Blocks";
+import type { Entry } from "contentful";
+import type { IArticle } from "types/contentful";
 import type { Article } from "types/generated";
 
 type PropsType = {
-  article: Article;
+  article: IArticle;
 };
 
-const Article = ({ article }: any) => {
-  const blocks = article.fields?.content.content || [];
+const Article = ({ article }: PropsType) => {
+  if (!article.fields) {
+    return null;
+  }
+
+  const blocks = article.fields.content.content;
+
   return (
-    <div>
-      {blocks.map((block: any) => {
-        console.log(block.content);
-        return (
-          <div>
-            {block.content.map((a) => {
-              return (
-                <div>
-                  <h1>{a.value}</h1>
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+    <div className="m-20">
+      <h1 className="text-5xl">{article.fields.title}</h1>
+      <Blocks blocks={blocks} />
     </div>
   );
 };

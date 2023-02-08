@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate": "DOTENV_CONFIG_PATH='./.env' graphql-codegen --require dotenv/config --config graphql/codegen.yml"
+    "generate": "DOTENV_CONFIG_PATH='./.env' graphql-codegen --require dotenv/config --config graphql/codegen.yml",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output types/contentful.d.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.7.5",
@@ -39,6 +40,7 @@
     "@graphql-codegen/typescript-react-query": "^4.1.0",
     "@types/node": "^18.13.0",
     "autoprefixer": "^10.4.13",
+    "contentful-typescript-codegen": "^3.4.0",
     "daisyui": "^2.49.0",
     "postcss": "^8.4.21"
   }
