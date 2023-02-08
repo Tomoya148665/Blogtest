@@ -15,8 +15,18 @@ const Article = ({ article }: PropsType) => {
   const blocks = article.fields.content.content;
 
   return (
-    <div className="m-20">
-      <h1 className="text-5xl">{article.fields.title}</h1>
+    <div className="my-20 max-w-6xl mx-auto px-5 lg:px-10">
+      <figure>
+        <img
+          className="w-full h-96 object-cover"
+          src={article.fields.coverImage.fields.file.url || ""}
+          alt="Shoes"
+        />
+      </figure>
+      <div className="my-2">
+        <a href="/media">記事一覧へ</a>
+      </div>
+      <h1 className="text-5xl my-10">{article.fields.title}</h1>
       <Blocks blocks={blocks} />
     </div>
   );

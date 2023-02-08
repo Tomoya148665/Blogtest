@@ -1,8 +1,7 @@
-import type { Asset, Entry } from "contentful";
-import type { Article } from "types/generated";
+import type { IArticle } from "types/contentful";
 
 type PropsType = {
-  articles: Entry<Article>[];
+  articles: IArticle[];
 };
 
 const Articles = ({ articles }: PropsType) => {
@@ -17,8 +16,7 @@ const Articles = ({ articles }: PropsType) => {
           >
             <figure>
               <img
-                // TODO: Asset の型を解決する
-                src={(article.fields.coverImage as any).fields.file.url || ""}
+                src={article.fields.coverImage.fields.file.url || ""}
                 alt="Shoes"
               />
             </figure>

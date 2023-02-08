@@ -66,6 +66,18 @@ const Country = ({ code }: { code: keyof typeof COUNTRIES }) => {
   );
 };
 
+const FunctionCard = ({ title, content, image }: CardProps) => {
+  return (
+    <div className="shadow-xl bg-base-100 grow p-12 space-y-5 rounded-sm">
+      <img src={image} className="max-w-[10%] mx-auto" />
+      <h3 className="text-2xl lg:text-3xl text-center whitespace-pre-wrap">
+        {title}
+      </h3>
+      <p className="lg:text-lg">{content}</p>
+    </div>
+  );
+};
+
 type TechnologyType = {
   title: string;
   content: string;
@@ -173,6 +185,66 @@ const Top = () => {
                 content="aaa"
                 image="/top/feature3.png"
               />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="hero min-h-[90vh] bg-base-100">
+        <div className="hero-content flex-col lg:flex-row">
+          <img
+            src="/technology/technology.jpg"
+            className="max-w-sm rounded-lg shadow-2xl"
+          />
+          <div>
+            <h1 className="text-5xl font-bold">
+              Notionで作ってるプロトタイプはる
+            </h1>
+            <p className="py-6">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              et a id nisi.
+            </p>
+            <button className="btn btn-primary">Get Started</button>
+          </div>
+        </div>
+      </div>
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row">
+          <div className="space-y-10 py-10">
+            <Header
+              title="jetGeeにできること（ひたすら列挙）"
+              subtitle="機能"
+              content="jetGee（ジェット・ジー）は最速で海外展開を目指すために必要なツールを提供します。"
+            />
+            <div>
+              <div className="flex">
+                <FunctionCard
+                  title={"機能1"}
+                  content="を提供します。"
+                  image="/top/feature1.png"
+                />
+                <FunctionCard
+                  title={"機能2"}
+                  content="を提供します。"
+                  image="/top/feature1.png"
+                />
+                <FunctionCard
+                  title={"VIsa"}
+                  content="を提供します。"
+                  image="/top/feature1.png"
+                />
+                <FunctionCard
+                  title={"VIsa"}
+                  content="を提供します。"
+                  image="/top/feature1.png"
+                />
+              </div>
+              <p className="py-6">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                assumenda excepturi exercitationem quasi. In deleniti eaque aut
+                repudiandae et a id nisi.
+              </p>
+              <button className="btn btn-primary">Get Started</button>
             </div>
           </div>
         </div>

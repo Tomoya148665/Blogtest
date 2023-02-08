@@ -15,24 +15,24 @@ type ContentArrayType = {
 const ParagraphContent = ({ content }: ContentType) => {
   switch (content.nodeType) {
     case "text":
-      return <p>{content.value}</p>;
+      return <p className="text-lg">{content.value}</p>;
     default:
-      return <div></div>;
+      throw new Error(`Unexpected content type ${content.nodeType}`);
   }
 };
 
 const HeadingContent = ({ content }: ContentType) => {
   switch (content.nodeType) {
     case "text":
-      return <h2 className="text-3xl">{content.value}</h2>;
+      return <h2 className="text-3xl my-5">{content.value}</h2>;
     default:
-      return <div></div>;
+      throw new Error(`Unexpected content type ${content.nodeType}`);
   }
 };
 
 const OrderedListContent = ({ content }: ContentArrayType) => {
   return (
-    <ul className="list-disc list-inside">
+    <ul className="list-disc list-inside my-7">
       {content.map((c) => {
         switch (c.nodeType) {
           case "list-item":
@@ -42,7 +42,9 @@ const OrderedListContent = ({ content }: ContentArrayType) => {
                 const listParagraphContent = listItemContent.content[0];
                 switch (listParagraphContent.nodeType) {
                   case "text":
-                    return <li>{listParagraphContent.value}</li>;
+                    return (
+                      <li className="text-lg">{listParagraphContent.value}</li>
+                    );
                 }
             }
         }
@@ -53,17 +55,19 @@ const OrderedListContent = ({ content }: ContentArrayType) => {
 
 const Blocks = ({ blocks }: PropsType) => {
   return (
-    <div>
+    <div className="gap-y-5">
       {blocks.map((block) => {
         switch (block.nodeType) {
           case "paragraph":
             return <ParagraphContent content={block.content[0]} />;
+          case "heading-1":
+            throw new Error("Don't use heading-1 for rich text");
           case "heading-2":
             return <HeadingContent content={block.content[0]} />;
           case "ordered-list":
             return <OrderedListContent content={block.content} />;
           default:
-            throw new Error("Unexpected block type");
+            throw new Error(`Unexpected block type ${block.nodeType}`);
         }
       })}
     </div>
