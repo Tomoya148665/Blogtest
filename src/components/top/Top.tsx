@@ -31,7 +31,7 @@ const COUNTRIES = {
   za: "南アフリカ",
 };
 
-const Card = ({ title, content, image }: CardProps) => {
+const ServiceCard = ({ title, content, image }: CardProps) => {
   return (
     <div className="shadow-xl bg-base-100 grow p-12 space-y-5 rounded-sm">
       <img src={image} className="max-w-[70%] mx-auto" />
@@ -66,14 +66,13 @@ const Country = ({ code }: { code: keyof typeof COUNTRIES }) => {
   );
 };
 
-const FunctionCard = ({ title, content, image }: CardProps) => {
+const MeritCard = ({ title, content }: Omit<CardProps, "image">) => {
   return (
-    <div className="shadow-xl bg-base-100 grow p-12 space-y-5 rounded-sm">
-      <img src={image} className="max-w-[10%] mx-auto" />
-      <h3 className="text-2xl lg:text-3xl text-center whitespace-pre-wrap">
+    <div>
+      <h3 className="text-primary text-lg md:text-xl font-semibold mb-2">
         {title}
       </h3>
-      <p className="lg:text-lg">{content}</p>
+      <p className="text-gray-500">{content}</p>
     </div>
   );
 };
@@ -108,11 +107,9 @@ type HeaderType = {
 
 const Header = ({ title, subtitle, content }: HeaderType) => {
   return (
-    <div className="space-y-10 w-full">
-      <div className="space-y-4">
-        <p className="text-primary font-bold text-lg">{subtitle}</p>
-        <h2 className="text-3xl lg:text-5xl font-bold">{title}</h2>
-      </div>
+    <div className="space-y-4 w-full">
+      <p className="text-primary font-bold text-lg">{subtitle}</p>
+      <h2 className="text-3xl lg:text-5xl font-bold">{title}</h2>
       <p className="mr-5 text-xl">{content}</p>
     </div>
   );
@@ -127,20 +124,23 @@ const Top = () => {
             src="/top.png"
             className="max-w-[50%] rounded-lg hidden lg:block"
           />
-          <div className="space-y-5">
+          <div className="space-y-8">
             <div>
-              <img src="/logo.png" className="max-w-[30%] rounded-lg" />
+              <img
+                src="/logo.png"
+                className="max-w-[30%] min-w-[150px] rounded-lg"
+              />
             </div>
             <div className="space-y-3">
-              <h1 className="text-3xl lg:text-5xl font-bold">
-                スタートアップのための
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold">
+                海外展開を加速する
               </h1>
-              <h1 className="text-3xl lg:text-5xl font-bold">
-                海外展開支援クラウド
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold">
+                現地情報DBクラウド
               </h1>
             </div>
-            <p className="py-6 mr-5 text-md lg:text-xl">
-              jetGee（ジェット・ジー）は最速で海外展開を目指すスタートアップのためのクラウドサービスです。海外展開に必要な最新情報を提供し、法務・税務・人事・財務などの手続きを効率化します。
+            <p className="mr-5 text-md lg:text-lg xl:text-xl">
+              jetGee（ジェット・ジー）は海外展開を目指す企業のためのクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
             </p>
             <div className="flex-col lg:flex-row items-center content-center">
               <button className="btn-primary btn-lg text-white">
@@ -165,36 +165,38 @@ const Top = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="space-y-10 py-10">
             <Header
-              title="最速で海外展開を目指す"
+              title="海外の最新情報を一箇所に集約"
               subtitle="jetGee（ジェット・ジー）とは？"
-              content="jetGee（ジェット・ジー）は最速で海外展開を目指すために必要なツールを提供します。"
+              content="jetGee（ジェット・ジー）は現地のネットワーク、商談機会、キーパーソン、市場変化といった情報をいち早く収集し、パーソナライズされた最新の情報を提供します。"
             />
             <div className="flex-row lg:flex w-full space-y-5 lg:space-y-0 lg:space-x-4">
-              <Card
-                title={"海外の最新情報DB\n一箇所に集約"}
-                content="規制・法律の改正、ニーズ変化、競合環境、情勢など、めまぐるしく変化するマーケット情報をいち早く収集し、常に最新の情報を提供します。"
+              <ServiceCard
+                title="商談機会"
+                content="展示会や商談会、バイヤーからの問い合わせ、ターゲットリストなど商談機会の創出や販路拡大を支援します。"
                 image="/top/feature1.png"
               />
-              <Card
-                title="最速の海外展開に向けた実行計画・タスク管理"
-                content="aaa"
+              <ServiceCard
+                title="ネットワーク"
+                content="現地の日本人ネットワークや業界ネットワークへのアクセス、キーパーソンや類似企業に関する情報を集約します。"
                 image="/top/feature2.png"
               />
-              <Card
-                title={"各エクスパートとの\nコラボレーション"}
-                content="aaa"
+              <ServiceCard
+                title="市場変化"
+                content="規制・法律の改正、ニーズ変化、競合環境、国際情勢など、専門家からの一次情報をレポーティングします。"
                 image="/top/feature3.png"
               />
             </div>
           </div>
         </div>
       </div>
-      <div className="hero min-h-[90vh] bg-base-100">
+      <div className="hero min-h-[70vh] bg-base-100 lg:px-20">
         <div className="hero-content flex-col lg:flex-row">
-          <img
-            src="/technology/technology.jpg"
-            className="max-w-sm rounded-lg shadow-2xl"
-          />
+          <div className="mockup-window border border-base-300">
+            <img
+              src="/top.png"
+              className="max-w-[60%] object-cover rounded-lg shadow-2xl"
+            />
+          </div>
           <div>
             <h1 className="text-5xl font-bold">
               Notionで作ってるプロトタイプはる
@@ -208,43 +210,39 @@ const Top = () => {
           </div>
         </div>
       </div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-[70vh] bg-base-200 lg:px-20">
         <div className="hero-content flex-col lg:flex-row">
-          <div className="space-y-10 py-10">
+          <div className="space-y-10 py-20">
             <Header
-              title="jetGeeにできること（ひたすら列挙）"
+              title="導入効果"
               subtitle="機能"
               content="jetGee（ジェット・ジー）は最速で海外展開を目指すために必要なツールを提供します。"
             />
-            <div>
-              <div className="flex">
-                <FunctionCard
-                  title={"機能1"}
-                  content="を提供します。"
-                  image="/top/feature1.png"
-                />
-                <FunctionCard
-                  title={"機能2"}
-                  content="を提供します。"
-                  image="/top/feature1.png"
-                />
-                <FunctionCard
-                  title={"VIsa"}
-                  content="を提供します。"
-                  image="/top/feature1.png"
-                />
-                <FunctionCard
-                  title={"VIsa"}
-                  content="を提供します。"
-                  image="/top/feature1.png"
-                />
-              </div>
-              <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
-              </p>
-              <button className="btn btn-primary">Get Started</button>
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16">
+              <MeritCard
+                title="展開成功率を上げる"
+                content="情報不足による失敗を避けることで海外展開の成功率に寄与します。ネットだけでは収集できない現地の情報を、知見を使って集めます。"
+              />
+              <MeritCard
+                title="スピードアップ"
+                content="ネットワーク構築には時間がかかってしまいます。知らない土地でゼロから関係性を構築し、キーマンを発見するのには時間がかかります。"
+              />
+              <MeritCard
+                title="情報の集約"
+                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+              />
+              <MeritCard
+                title="人件費、駐在費、渡航費の削減"
+                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+              />
+              <MeritCard
+                title="外注コストの削減"
+                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+              />
+              <MeritCard
+                title="チームの補強"
+                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+              />
             </div>
           </div>
         </div>
@@ -252,7 +250,7 @@ const Top = () => {
       <div className="hero min-h-[80vh] bg-base-100 lg:px-20">
         <div className="hero-content flex-col w-full py-10 space-y-10">
           <Header
-            title="ジェットスターと必須ツール"
+            title="利用例"
             subtitle="ユースケース"
             content="jetGee（ジェット・ジー）は最速で海外展開を目指すために必要なツールを提供します。"
           />
@@ -264,7 +262,7 @@ const Top = () => {
             />
             <UsecaseCard
               title="経営者・起業家"
-              content="アメリカの進出にあたり経営陣が先陣を切ってアメリカ拠点に駐在することとなりました。煩雑なVISA取得のステップわかりやすくまとまっていて、かつ取得見込みの日付がわかったので大変助かりました。"
+              content="アメリカの進出にあたり経営陣が先陣を切ってアメリカ拠点に駐在する。煩雑なVISA取得のステップわかりやすくまとまっていて、かつ取得見込みの日付がわかったので大変助かりました。"
               image="/usecase/usecase2.jpg"
             />
             <UsecaseCard
@@ -274,7 +272,7 @@ const Top = () => {
             />
             <UsecaseCard
               title="弁護士税理士、行政書士"
-              content="申請状況やサポート状況を相互に確認し合えることで、やりとりがスムーズになりました。"
+              content="申請状況やサポート状況を相互に確認し合えることで、やりとりがスムーズになりました。やりとりがスムーズになりました。やりとりがスムーズになりました。"
               image="/usecase/usecase4.jpg"
             />
           </div>
