@@ -320,7 +320,6 @@ const Top = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
