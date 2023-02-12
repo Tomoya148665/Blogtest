@@ -26,6 +26,7 @@ resource "vercel_project" "gorlem" {
     branch = "main"
     production_branch = "main"
   }
+  serverless_function_region = "hnd1"
   environment = [
     {
       key    = "API_URL"
