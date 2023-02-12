@@ -21,7 +21,7 @@ const ParagraphContent = ({ content }: ContentType) => {
   }
 };
 
-const HeadingContent = ({ content }: ContentType) => {
+export const HeadingContent = ({ content }: ContentType) => {
   switch (content.nodeType) {
     case "text":
       return <h2 className="text-3xl my-5">{content.value}</h2>;

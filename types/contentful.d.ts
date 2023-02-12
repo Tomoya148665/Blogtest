@@ -15,6 +15,9 @@ export interface IArticleFields {
 
   /** slug */
   slug: string;
+
+  /** description */
+  description: string;
 }
 
 export interface IArticle extends Entry<IArticleFields> {

@@ -1,4 +1,5 @@
 import { Image, Picture } from "@astrojs/image/components";
+import Footer from "@layouts/Footer";
 import type { ReactNode } from "react";
 import { FaDatabase, FaProjectDiagram } from "react-icons/fa";
 
@@ -110,7 +111,7 @@ const Header = ({ title, subtitle, content }: HeaderType) => {
     <div className="space-y-4 w-full">
       <p className="text-primary font-bold text-lg">{subtitle}</p>
       <h2 className="text-3xl lg:text-5xl font-bold">{title}</h2>
-      <p className="mr-5 text-xl">{content}</p>
+      <p className="mr-5 text-lg text-gray-500">{content}</p>
     </div>
   );
 };
@@ -136,10 +137,10 @@ const Top = () => {
                 海外展開を加速する
               </h1>
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold">
-                現地情報DBクラウド
+                現地の最新情報DBクラウド
               </h1>
             </div>
-            <p className="mr-5 text-md lg:text-lg xl:text-xl">
+            <p className="mr-5 text-md lg:text-lg xl:text-xl text-gray-500">
               jetGee（ジェット・ジー）は海外展開を目指す企業のためのクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
             </p>
             <div className="flex-col lg:flex-row items-center content-center">
@@ -181,7 +182,7 @@ const Top = () => {
                 image="/top/feature2.png"
               />
               <ServiceCard
-                title="市場変化"
+                title="マーケット変化"
                 content="規制・法律の改正、ニーズ変化、競合環境、国際情勢など、専門家からの一次情報をレポーティングします。"
                 image="/top/feature3.png"
               />
@@ -191,23 +192,17 @@ const Top = () => {
       </div>
       <div className="hero min-h-[70vh] bg-base-100 lg:px-20">
         <div className="hero-content flex-col lg:flex-row">
-          <div className="mockup-window border border-base-300">
+          <div className="mockup-window border border-base-300 shadow-lg mr-10 max-w-[50%]">
             <img
-              src="/top.png"
-              className="max-w-[60%] object-cover rounded-lg shadow-2xl"
+              src="/top/screen.png"
+              className="object-fit rounded-lg shadow-3xl"
             />
           </div>
-          <div>
-            <h1 className="text-5xl font-bold">
-              Notionで作ってるプロトタイプはる
-            </h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
-          </div>
+          <Header
+            title="更新し続けるレポート"
+            subtitle="プロダクト"
+            content="優れたUIUXのダッシュボード上で、最新の情報を一目で確認できます。フィードバックを学習し続け、よりパーソナライズされた情報を提供します。また、ダッシュボードでタスクや実行ステップを管理し、コラボレーションを加速します。"
+          />
         </div>
       </div>
       <div className="hero min-h-[70vh] bg-base-200 lg:px-20">
@@ -325,35 +320,7 @@ const Top = () => {
           </div>
         </div>
       </div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
-        <div>
-          <div>
-            <img src="/logo.png" className="max-w-[10vw] rounded-lg" />
-          </div>
-          <p>
-            Wrexiv株式会社
-            <br />
-            Providing reliable tech since 1992
-          </p>
-        </div>
-        <div>
-          <span className="footer-title">Services</span>
-          <a className="link link-hover">jetGee</a>
-          <a className="link link-hover">jetGee Media</a>
-        </div>
-        <div>
-          <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-        </div>
-        <div>
-          <span className="footer-title">Legal</span>
-          <a className="link link-hover">利用規約（準備中）</a>
-          <a className="link link-hover">プライバシーポリシー</a>
-          <a className="link link-hover">Cookie policy</a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

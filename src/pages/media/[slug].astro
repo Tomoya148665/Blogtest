@@ -4,6 +4,7 @@ import type { Article as ArticleType } from "types/generated";
 import Layout from "@layouts/Layout.astro";
 import Article from "@components/articles/Article";
 import type { IArticle } from "types/contentful";
+import TableOfContents from "@components/organisms/TableOfContents";
 
 export async function getStaticPaths() {
   const { items } = await contentfulClient.getEntries<ArticleType>({

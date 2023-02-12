@@ -1,14 +1,16 @@
 ---
 import { contentfulClient } from "@lib/contentful";
-import type { Article } from "types/generated";
 import Layout from "@layouts/Layout.astro";
 import Articles from "@components/articles/Articles";
+import type { IArticle } from "types/contentful";
 
-const entries = await contentfulClient.getEntries<Article>({
+const entries = await contentfulClient.getEntries({
   content_type: "article",
+  order: "sys.createdAt",
 });
 ---
 
 <Layout>
-  {entries.items && <Articles articles={entries.items} />}
+  <!-- TODO: 型解決する -->
+  {entries.items && <Articles articles={entries.items as IArticle[]} />}
 </Layout>

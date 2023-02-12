@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Footer from "./Footer";
 
 type PropsType = {
   pathname: string;
@@ -12,19 +13,21 @@ const Layout = ({ pathname, children }: PropsType) => {
       <div className="navbar bg-white shadow-sm">
         <div className="flex-1">
           {firstPath === "media" && (
-            <img src="/logo.png" className="max-h-[40px] rounded-lg" />
+            <a href="/">
+              <img src="/logo.png" className="max-h-[40px] rounded-lg" />
+            </a>
           )}
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 hidden md:flex">
             {firstPath === "media" && (
               <li>
-                <a href="/">プロダクトページへ</a>
+                <a href="/">プロダクト</a>
               </li>
             )}
             {firstPath !== "media" && (
               <li>
-                <a href="/media">ブログへ</a>
+                <a href="/media">ブログ</a>
               </li>
             )}
             {false && (
@@ -55,6 +58,7 @@ const Layout = ({ pathname, children }: PropsType) => {
         </div>
       </div>
       <div className="bg-base-100">{children}</div>
+      <Footer />
     </div>
   );
 };
