@@ -1,7 +1,7 @@
 import { Image, Picture } from "@astrojs/image/components";
 import Footer from "@layouts/Footer";
 import type { ReactNode } from "react";
-import { FaDatabase, FaProjectDiagram } from "react-icons/fa";
+import { FaDatabase, FaProjectDiagram } from "react-icons/fa/index";
 
 type CardProps = {
   title: string;
