@@ -14,16 +14,17 @@ const HEADINGS = [BLOCKS.HEADING_2, BLOCKS.HEADING_3];
 const TableOfContents = ({ article }: PropsType) => {
   const blocks = article.fields.content.content;
   const headings = blocks.filter((b) => HEADINGS.includes(b.nodeType));
-  console.log(headings);
   return (
     <nav className="toc bg-gray-200">
       <p className="toc__title">目次</p>
       {headings.map((heading) => {
+        const content = heading.content[0];
+        if (content.nodeType !== "text") return null;
         if (heading.nodeType === BLOCKS.HEADING_2) {
-          return <HeadingContent content={heading.content[0]} />;
+          return <p>{content.value}</p>;
         }
         if (heading.nodeType === BLOCKS.HEADING_3) {
-          return <HeadingContent content={heading.content[0]} />;
+          return <p className="ml-10">{content.value}</p>;
         }
       })}
     </nav>

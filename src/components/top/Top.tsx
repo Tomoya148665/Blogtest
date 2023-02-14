@@ -144,9 +144,15 @@ const Top = () => {
               jetGee（ジェット・ジー）は海外展開を目指す企業のためのクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
             </p>
             <div className="flex-col lg:flex-row items-center content-center">
-              <button className="btn-primary btn-lg text-white">
-                メールアドレスで事前登録
-              </button>
+              <a
+                href="https://opeec3267cu.typeform.com/to/xP79qnLT"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="btn-primary btn-lg text-white">
+                  メールアドレスで事前登録
+                </button>
+              </a>
               <p className="ml-4">※ 2023年3月にβ版リリース予定</p>
             </div>
           </div>
@@ -209,34 +215,34 @@ const Top = () => {
         <div className="hero-content flex-col lg:flex-row">
           <div className="space-y-10 py-20">
             <Header
-              title="導入効果"
-              subtitle="機能"
-              content="jetGee（ジェット・ジー）は最速で海外展開を目指すために必要なツールを提供します。"
+              title="駐在員より安く、より高い効果を発揮"
+              subtitle="導入効果"
+              content="駐在員を配置したり、社員が現地に何度も出張したりするコストを削減し、より早く、より高い成功率を導きます。"
             />
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16">
               <MeritCard
-                title="展開成功率を上げる"
-                content="情報不足による失敗を避けることで海外展開の成功率に寄与します。ネットだけでは収集できない現地の情報を、知見を使って集めます。"
+                title="海外展開の成功率をUP"
+                content="情報不足による失敗を避けることで海外展開の成功率に寄与します。ネットだけでは収集できない一次情報を独自ネットワークとテクノロジーによって収集します。"
               />
               <MeritCard
-                title="スピードアップ"
-                content="ネットワーク構築には時間がかかってしまいます。知らない土地でゼロから関係性を構築し、キーマンを発見するのには時間がかかります。"
+                title="展開速度の上昇"
+                content="現地滞在者を派遣し現地ネットワーク構築するには長い時間がかかります。jetGeeは知らない土地でキーとなる情報やキーパーソンの発見を素早く行います。"
               />
               <MeritCard
-                title="情報の集約"
-                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+                title="情報管理コストの削減"
+                content="海外展開に関する情報を1箇所に集約することでチーム間での情報管理を容易にし、本社と現地間での情報共有・連携コストを最小化します。"
               />
               <MeritCard
                 title="人件費、駐在費、渡航費の削減"
-                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+                content="人を採用し、派遣し、渡航費や滞在費を支払うには、年間約3,000円程度の多大なコストが発生します。jetGeeを使うことで、1/10以下に削減可能です。"
               />
               <MeritCard
                 title="外注コストの削減"
-                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+                content="海外進出支援コンサルタント、リサーチ会社等に外注するコストを大幅に削減し、さらに自社にノウハウやナレッジを貯めることができます。"
               />
               <MeritCard
-                title="チームの補強"
-                content="人を採用し、駐在させ、日本と行き来するための航空券チケットを毎回払うのは高額ですし、無駄な気がします。無駄な気がします。"
+                title="グローバルチームの補強"
+                content="情報データベースそのものが、海外展開チームの強いナレッジとして機能し、複数国への展開や企業のグローバル化を後押しします。"
               />
             </div>
           </div>
@@ -245,30 +251,30 @@ const Top = () => {
       <div className="hero min-h-[80vh] bg-base-100 lg:px-20">
         <div className="hero-content flex-col w-full py-10 space-y-10">
           <Header
-            title="利用例"
+            title="さまざまなフェーズで強力なパートナーに"
             subtitle="ユースケース"
-            content="jetGee（ジェット・ジー）は最速で海外展開を目指すために必要なツールを提供します。"
+            content="企業様のフェーズ、業界、進出国、製品ごとにパーソナライズされた情報を提供します。"
           />
           <div className="grid lg:grid-cols-2 w-full gap-10">
             <UsecaseCard
               title="海外展開チームのマネージャー"
-              content="「XXX国の旅行業法の改正があり、YYYすることになりました。弊社の旅行事業に影響があり、法改正対応をする必要がありましたが、いち早く情報を取得し、素早く動き出すことができました。」"
+              content="「中国で消費者契約法の改正がありました。中国での旅行事業において、利用規約や旅行契約約款の変更の必要に迫られましたが、いち早く情報を取得することができたおかげで、素早く動き出すことができました。」"
               image="/usecase/usecase1.jpg"
             />
             <UsecaseCard
+              title="大手グローバル企業 経営企画"
+              content="コロナ以後、駐在員の人数を減らしていたため、現地情報の収集に難航していました。jetGee経由での情報収集が可能となったため、結果的に駐在員を配置する必要がなくなり、大幅なコストとリスクの削減につながりました。"
+              image="/usecase/usecase4.jpg"
+            />
+            <UsecaseCard
               title="経営者・起業家"
-              content="アメリカの進出にあたり経営陣が先陣を切ってアメリカ拠点に駐在する。煩雑なVISA取得のステップわかりやすくまとまっていて、かつ取得見込みの日付がわかったので大変助かりました。"
+              content="アメリカの進出にあたり経営陣が先陣を切ってアメリカ拠点に駐在することになりました。煩雑なVISA取得のステップわかりやすくまとまっていて、かつ取得見込みの日付がわかったので大変助かりました。"
               image="/usecase/usecase2.jpg"
             />
             <UsecaseCard
               title="バックオフィス"
-              content="法人設立、銀行口座開設、税務、労務など、何から手をつけて良いかわからない状態でしたが、ドイツ語の最新の手続きをまとめて確認することができたので、実行計画が進めやすかったです。"
+              content="ドイツ進出にあたり、法人設立、銀行口座開設、税務、労務など、何から手をつけて良いかわからない状態でしたが、ドイツ語の最新の手続きをまとめて確認することができたので、実行計画が進めやすかったです。"
               image="/usecase/usecase3.jpg"
-            />
-            <UsecaseCard
-              title="弁護士税理士、行政書士"
-              content="申請状況やサポート状況を相互に確認し合えることで、やりとりがスムーズになりました。やりとりがスムーズになりました。やりとりがスムーズになりました。"
-              image="/usecase/usecase4.jpg"
             />
           </div>
         </div>
@@ -279,22 +285,22 @@ const Top = () => {
             <Header
               title="独自技術"
               subtitle="テクノロジー"
-              content="jetGee（ジェット・ジー）は海外展開に特化した独自のテクノロジーを活用し、ビジネスを支援します。※ 特許出願中"
+              content="jetGee（ジェット・ジー）は海外展開に特化した独自のテクノロジーを活用し、グローバルビジネスを支援します。※ 特許出願中"
             />
             <div className="grid gap-4">
               <Technology
-                title="AIによるデータキュレーション、リスク予測"
-                content="関連する情報のみをピックアップします。独自のアルゴリズムで解析し、ビジネスに与える影響を予測します。"
+                title="AIによるデータキュレーション、パーソナライズ化"
+                content="大量の情報を独自のアルゴリズムで解析し、ビジネスに与える影響度や関連性の高い情報のみを集約し、レポーティングをします。Google検索や長いレポートを読むより効率良く情報収集ができます。"
                 icon={<FaDatabase size="30" />}
               />
               <Technology
                 title="最新情報ソースとの自動連携"
-                content="常に最新情報を取得します。また全世界にいる駐在員から情報をアップデートし、現地の位置情報を信頼できるルートで取得します。"
+                content="全世界に存在する駐在員・現地ネットワークから収集した一次情報と、WEB上に存在するあらゆる情報を統合し、情報を常に最新かつ信頼できるものに保ちます。"
                 icon={<FaProjectDiagram size="30" />}
               />
               <Technology
-                title="最速の実行計画を自動作成"
-                content="手続きやローカライズの実行計画を自動作成します。最速で海外展開を目指すために必要なツールを提供します。"
+                title="最適の実行計画を自動作成"
+                content="得た最新の情報をもとに、法務手続きやプロダクトローカライズの実行計画を自動作成します。激しく変わる競争環境の中で、最も最適な海外展開のステップを洗い出します。"
                 icon={<FaDatabase size="30" />}
               />
             </div>
@@ -314,9 +320,15 @@ const Top = () => {
             <p className="py-6">
               jetGeeは海外展開の最初から最後まで常に並走する存在です。
             </p>
-            <button className="btn btn-primary text-white">
-              メールアドレスで事前登録
-            </button>
+            <a
+              href="https://opeec3267cu.typeform.com/to/xP79qnLT"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="btn btn-primary text-white">
+                メールアドレスで事前登録
+              </button>
+            </a>
           </div>
         </div>
       </div>

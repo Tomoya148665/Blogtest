@@ -10,17 +10,21 @@ const Footer = () => {
         <p>
           Wrexiv株式会社
           <br />
-          Providing reliable tech since 1992
+          Providing reliable tech since 2022
         </p>
       </div>
       <div>
         <span className="footer-title">Services</span>
-        <a className="link link-hover">jetGee</a>
-        <a className="link link-hover">jetGee Media</a>
+        <a className="link link-hover" href="/">
+          jetGee
+        </a>
+        <a className="link link-hover" href="/media">
+          jetGee Media
+        </a>
       </div>
       <div>
         <span className="footer-title">Company</span>
-        <a className="link link-hover">About us</a>
+        <a className="link link-hover">About us（準備中）</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
       </div>
