@@ -1,5 +1,5 @@
 import { formatISO, parseISO, format } from "date-fns";
-import ja from "date-fns/locale/ja";
+import ja from "date-fns/locale/ja/index.js";
 
 export const formatDatetime = (datetime: string, withTime = true): string =>
   new Intl.DateTimeFormat("ja-JP", {
