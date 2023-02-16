@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        card: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
