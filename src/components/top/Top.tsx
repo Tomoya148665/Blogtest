@@ -153,7 +153,7 @@ const Top = () => {
                   メールアドレスで事前登録
                 </button>
               </a>
-              <p className="ml-4">※ 2023年3月にβ版リリース予定</p>
+              <p className="ml-4">※ 2023年5月にβ版リリース予定</p>
             </div>
           </div>
         </div>
