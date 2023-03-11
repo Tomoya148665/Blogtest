@@ -89,7 +89,7 @@ const Technology = ({ title, content, icon }: TechnologyType) => {
     <div className="card border bg-white w-full min-w-full">
       <div className="card-body">
         <div className="flex items-center">
-          <div className="mr-6">{icon}</div>
+          <div className="mr-6 hidden lg:block">{icon}</div>
           <div>
             <h2 className="card-title">{title}</h2>
             <p>{content}</p>
@@ -111,7 +111,7 @@ const Header = ({ title, subtitle, content }: HeaderType) => {
     <div className="space-y-4 w-full">
       <p className="text-primary font-bold text-lg">{subtitle}</p>
       <h2 className="text-3xl lg:text-5xl font-bold">{title}</h2>
-      <p className="mr-5 text-lg text-gray-500">{content}</p>
+      <p className="mr-5 text-sm lg:text-lg text-gray-500">{content}</p>
     </div>
   );
 };
@@ -134,14 +134,14 @@ const Top = () => {
             </div>
             <div className="space-y-3">
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold">
-                海外展開を加速する
+                海外展開を加速するAI
               </h1>
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold">
                 現地の最新情報DBクラウド
               </h1>
             </div>
-            <p className="mr-5 text-md lg:text-lg xl:text-xl text-gray-500">
-              jetGee（ジェット・ジー）は海外展開を目指す企業のためのクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
+            <p className="mr-5 text-sm lg:text-lg xl:text-xl text-gray-500">
+              jetGee（ジェット・ジー）は海外展開を目指す企業のためのAIクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
             </p>
             <div className="flex-col lg:flex-row items-center content-center">
               <a
@@ -198,7 +198,7 @@ const Top = () => {
       </div>
       <div className="hero min-h-[70vh] bg-base-100 lg:px-20">
         <div className="hero-content flex-col lg:flex-row">
-          <div className="mockup-window border border-base-300 shadow-lg mr-10 max-w-[50%]">
+          <div className="mockup-window border border-base-300 shadow-lg lg:mr-10 max-w-none lg:max-w-[50%] mb-4 lg:mb-0">
             <img
               src="/top/screen.png"
               className="object-fit rounded-lg shadow-3xl"
@@ -215,9 +215,9 @@ const Top = () => {
         <div className="hero-content flex-col lg:flex-row">
           <div className="space-y-10 py-20">
             <Header
-              title="駐在員より安く、より高い効果を発揮"
+              title="チームの「海外展開力」を増強"
               subtitle="導入効果"
-              content="駐在員を配置したり、社員が現地に何度も出張したりするコストを削減し、より早く、より高い成功率を導きます。"
+              content="海外展開に関わるチームの力強い仲間として加わり、より安く、より早く、より高い成功率で海外展開を導きます。"
             />
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16">
               <MeritCard
@@ -233,16 +233,16 @@ const Top = () => {
                 content="海外展開に関する情報を1箇所に集約することでチーム間での情報管理を容易にし、本社と現地間での情報共有・連携コストを最小化します。"
               />
               <MeritCard
-                title="人件費、駐在費、渡航費の削減"
-                content="人を採用し、派遣し、渡航費や滞在費を支払うには、年間約3,000円程度の多大なコストが発生します。jetGeeを使うことで、1/10以下に削減可能です。"
-              />
-              <MeritCard
-                title="外注コストの削減"
-                content="海外進出支援コンサルタント、リサーチ会社等に外注するコストを大幅に削減し、さらに自社にノウハウやナレッジを貯めることができます。"
-              />
-              <MeritCard
                 title="グローバルチームの補強"
                 content="情報データベースそのものが、海外展開チームの強いナレッジとして機能し、複数国への展開や企業のグローバル化を後押しします。"
+              />
+              <MeritCard
+                title="人件費、駐在費、渡航費の削減"
+                content="人を採用し、派遣し、渡航費や滞在費を支払うには、年間約3,000円程度の多大なコストが発生します。jetGeeを使うことで、大幅なコストダウンが可能です。"
+              />
+              <MeritCard
+                title="支援会社とのコラボレーション"
+                content="海外進出支援コンサルタント、リサーチ会社などの支援会社とのコラボレーションを容易にし、得たノウハウやナレッジを蓄積しやすくします。"
               />
             </div>
           </div>
@@ -251,9 +251,9 @@ const Top = () => {
       <div className="hero min-h-[80vh] bg-base-100 lg:px-20">
         <div className="hero-content flex-col w-full py-10 space-y-10">
           <Header
-            title="さまざまなフェーズで強力なパートナーに"
+            title="さまざまな業界・フェーズで強力なパートナーに"
             subtitle="ユースケース"
-            content="企業様のフェーズ、業界、進出国、製品ごとにパーソナライズされた情報を提供します。"
+            content="企業様のフェーズ、業界、進出国、製品ごとにパーソナライズされた情報を提供します。また細かなご要望に合わせてAIをチューニングし、希望の情報のみを抽出します。"
           />
           <div className="grid lg:grid-cols-2 w-full gap-10">
             <UsecaseCard
@@ -263,17 +263,24 @@ const Top = () => {
             />
             <UsecaseCard
               title="大手グローバル企業 経営企画"
-              content="コロナ以後、駐在員の人数を減らしていたため、現地情報の収集に難航していました。jetGee経由での情報収集が可能となったため、結果的に駐在員を配置する必要がなくなり、大幅なコストとリスクの削減につながりました。"
+              content="「コロナ以後、駐在員の人数を減らしていたため、現地情報の収集に難航していました。jetGee経由で業界特化の情報収集が可能となったため、結果的に駐在員の大幅な業務効率化にもつながりました。」"
               image="/usecase/usecase4.jpg"
             />
+            {false && (
+              <UsecaseCard
+                title="経営者・起業家"
+                content="「アメリカの進出にあたり経営陣が先陣を切ってアメリカ拠点に駐在することになりました。煩雑なVISA取得のステップわかりやすくまとまっていて、かつ取得見込みの日付がわかったので大変助かりました。」"
+                image="/usecase/usecase2.jpg"
+              />
+            )}
             <UsecaseCard
               title="経営者・起業家"
-              content="アメリカの進出にあたり経営陣が先陣を切ってアメリカ拠点に駐在することになりました。煩雑なVISA取得のステップわかりやすくまとまっていて、かつ取得見込みの日付がわかったので大変助かりました。"
+              content="「アメリカの進出にあたり経営陣が先陣を切って市場開拓を試みました。早期から少しずつjetGeeを使用して情報収集をしていたので、チームにノウハウやナレッジが蓄積し、スムーズな参入をすることができました。」"
               image="/usecase/usecase2.jpg"
             />
             <UsecaseCard
               title="バックオフィス"
-              content="ドイツ進出にあたり、法人設立、銀行口座開設、税務、労務など、何から手をつけて良いかわからない状態でしたが、ドイツ語の最新の手続きをまとめて確認することができたので、実行計画が進めやすかったです。"
+              content="「ドイツ進出にあたり、法人設立、銀行口座開設、税務、労務など、何から手をつけて良いかわからない状態でしたが、ドイツ語の最新の手続きをまとめて確認することができたので、実行計画が進めやすかったです。」"
               image="/usecase/usecase3.jpg"
             />
           </div>
@@ -308,7 +315,7 @@ const Top = () => {
           <div className="align-bottom contents">
             <img
               src="/technology/technology.jpg"
-              className="max-w-sm rounded-lg shadow-2xl mt-auto"
+              className="lg:max-w-sm rounded-lg shadow-2xl mt-auto"
             />
           </div>
         </div>
@@ -316,7 +323,9 @@ const Top = () => {
       <div className="hero min-h-[50vh] bg-base-100 lg:px-20">
         <div className="hero-content text-center">
           <div className="max-w-xl">
-            <h1 className="text-5xl font-bold">共に世界を目指しましょう</h1>
+            <h1 className="text-3xl lg:text-5xl font-bold">
+              共に世界を目指しましょう
+            </h1>
             <p className="py-6">
               jetGeeは海外展開の最初から最後まで常に並走する存在です。
             </p>
