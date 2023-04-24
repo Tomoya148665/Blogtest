@@ -7,10 +7,12 @@ type PropsType = {
 
 const Articles = ({ articles }: PropsType) => {
   const firstArticle = articles[0];
-
+  
+  /* 
   if (!firstArticle || !import.meta.env.DEV) {
     return <div>準備中</div>;
   }
+  */
 
   return (
     <div className="max-w-[900px] mx-auto">
@@ -41,7 +43,7 @@ const Articles = ({ articles }: PropsType) => {
         </div>
       </a>
       <div className="grid grid-cols-2 gap-10 my-10">
-        {articles.slice(1).map((article) => {
+        {articles.map((article) => {
           if (!article) return null;
           return (
             <a href={`/media/${article.fields.slug}`} className="grow">
@@ -57,9 +59,9 @@ const Articles = ({ articles }: PropsType) => {
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title text-xl">{article.fields.title}</h2>
-                  <p>{firstArticle.fields.description}</p>
+                  <p>{article.fields.description}</p>
                   <p>
-                    {formatDatetimeWithDay(firstArticle.sys.createdAt, false)}
+                    {formatDatetimeWithDay(article.sys.createdAt, false)}
                   </p>
                 </div>
               </div>
