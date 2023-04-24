@@ -43,7 +43,7 @@ const Articles = ({ articles }: PropsType) => {
         </div>
       </a>
       <div className="grid grid-cols-2 gap-10 my-10">
-        {articles.map((article) => {
+        {articles.slice(1).map((article) => {
           if (!article) return null;
           return (
             <a href={`/media/${article.fields.slug}`} className="grow">
