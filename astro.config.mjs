@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import dotenv from "dotenv";
 import storyblok from "@storyblok/astro";
+import partytown from "@astrojs/partytown";
+
 dotenv.config({
   path: ".env",
 });
@@ -29,5 +31,11 @@ export default defineConfig({
       },
     }),
     image(),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event.
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ],
 });
