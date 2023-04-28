@@ -7,12 +7,10 @@ type PropsType = {
 
 const Articles = ({ articles }: PropsType) => {
   const firstArticle = articles[0];
-  
-  /* 
+
   if (!firstArticle || !import.meta.env.DEV) {
     return <div>準備中</div>;
   }
-  */
 
   return (
     <div className="max-w-[900px] mx-auto">
@@ -60,9 +58,7 @@ const Articles = ({ articles }: PropsType) => {
                 <div className="card-body">
                   <h2 className="card-title text-xl">{article.fields.title}</h2>
                   <p>{article.fields.description}</p>
-                  <p>
-                    {formatDatetimeWithDay(article.sys.createdAt, false)}
-                  </p>
+                  <p>{formatDatetimeWithDay(article.sys.createdAt, false)}</p>
                 </div>
               </div>
             </a>
