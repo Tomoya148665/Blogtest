@@ -8,9 +8,9 @@ type PropsType = {
 const Articles = ({ articles }: PropsType) => {
   const firstArticle = articles[0];
 
-  if (!firstArticle || !import.meta.env.DEV) {
+  /* if (!firstArticle || !import.meta.env.DEV) {
     return <div>準備中</div>;
-  }
+  } */
 
   return (
     <div className="max-w-[900px] mx-auto">
@@ -41,7 +41,7 @@ const Articles = ({ articles }: PropsType) => {
         </div>
       </a>
       <div className="grid grid-cols-2 gap-10 my-10">
-        {articles.slice(1).map((article) => {
+        {articles.slice(1).map(article => {
           if (!article) return null;
           return (
             <a href={`/media/${article.fields.slug}`} className="grow">
