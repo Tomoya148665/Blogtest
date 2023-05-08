@@ -16,7 +16,7 @@ const options = {
       <p className="text-lg inline">{children}</p>
     ),
     [BLOCKS.HEADING_2]: (_node: any, children: ReactNode) => (
-      <h2 className="text-3xl border-r-8 border-l-primary pl-4 mt-10 mb-5 text-red-500">
+      <h2 className="text-3xl border-l-4 border-l-primary pl-4 mt-10 mb-5">
         {children}
       </h2>
     ),
