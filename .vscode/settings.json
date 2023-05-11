@@ -28,5 +28,5 @@
   "prettier.useEditorConfig": false,
   "prettier.useTabs": false,
   "prettier.configPath": ".prettierrc",
-  "cSpell.words": ["repairment"],
+  "eslint.workingDirectories": ["src"],
 }

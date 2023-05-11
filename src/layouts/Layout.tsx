@@ -58,7 +58,7 @@ const Layout = ({ pathname, children }: PropsType) => {
         </div>
       </div>
       <div className="bg-base-100">{children}</div>
-      {false &&<Footer />}
+      <Footer />
     </div>
   );
 };

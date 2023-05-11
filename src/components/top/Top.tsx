@@ -116,6 +116,8 @@ const Header = ({ title, subtitle, content }: HeaderType) => {
   );
 };
 
+const SIGNUP_URL = "https://app.jetgee.com/sign_up/";
+
 const Top = () => {
   return (
     <div>
@@ -144,16 +146,12 @@ const Top = () => {
               jetGee（ジェット・ジー）は海外展開を目指す企業のためのAIクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
             </p>
             <div className="flex-col lg:flex-row items-center content-center">
-              <a
-                href="https://opeec3267cu.typeform.com/to/xP79qnLT"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
                 <button className="btn-primary btn-lg text-white">
-                  メールアドレスで事前登録
+                  トライアルを開始
                 </button>
               </a>
-              <p className="ml-4">※ 2023年5月にβ版リリース予定</p>
+              {false && <p className="ml-4">※ 2023年5月にβ版リリース予定</p>}
             </div>
           </div>
         </div>
@@ -162,7 +160,7 @@ const Top = () => {
         <div className="hero-content flex-col items-start">
           <p className="text-primary font-bold">対応国一覧（一部）</p>
           <div className="grid grid-cols-10 w-full gap-1 lg:gap-10">
-            {Object.keys(COUNTRIES).map((code) => {
+            {Object.keys(COUNTRIES).map(code => {
               return <Country code={code as keyof typeof COUNTRIES} />;
             })}
           </div>
@@ -329,13 +327,9 @@ const Top = () => {
             <p className="py-6">
               jetGeeは海外展開の最初から最後まで常に並走する存在です。
             </p>
-            <a
-              href="https://opeec3267cu.typeform.com/to/xP79qnLT"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
               <button className="btn btn-primary text-white">
-                メールアドレスで事前登録
+                トライアルを開始
               </button>
             </a>
           </div>

@@ -24,15 +24,27 @@ const Footer = () => {
       </div>
       <div>
         <span className="footer-title">Company</span>
-        <a className="link link-hover">About us（準備中）</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
+        <a href="https://www.wrexiv.com/" className="link link-hover">
+          About us
+        </a>
+        <a
+          href="https://share.hsforms.com/1-bDCbAKUQfC4ZOIDAD6nhgnndjo"
+          className="link link-hover"
+        >
+          Contact
+        </a>
+        {/* <a className="link link-hover">Jobs</a> */}
       </div>
       <div>
         <span className="footer-title">Legal</span>
-        <a className="link link-hover">利用規約（準備中）</a>
-        <a className="link link-hover">プライバシーポリシー</a>
-        <a className="link link-hover">Cookie policy</a>
+        <p>利用規約（準備中）</p>
+        {false && (
+          <>
+            <a className="link link-hover">利用規約（準備中）</a>
+            <a className="link link-hover">プライバシーポリシー</a>
+            <a className="link link-hover">Cookie policy</a>
+          </>
+        )}
       </div>
     </footer>
   );
