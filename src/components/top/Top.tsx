@@ -117,6 +117,7 @@ const Header = ({ title, subtitle, content }: HeaderType) => {
 };
 
 const SIGNUP_URL = "https://app.jetgee.com/sign_up/";
+const TRIAL_FORM_URL = "https://share.hsforms.com/1AXCA5D56Rvqq5vk93eS1nQnndjo";
 
 const Top = () => {
   return (
@@ -146,7 +147,11 @@ const Top = () => {
               jetGee（ジェット・ジー）は海外展開を目指す企業のためのAIクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
             </p>
             <div className="flex-col lg:flex-row items-center content-center">
-              <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
+              <a
+                href={TRIAL_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button className="btn-primary btn-lg text-white">
                   トライアルを開始
                 </button>
@@ -327,7 +332,7 @@ const Top = () => {
             <p className="py-6">
               jetGeeは海外展開の最初から最後まで常に並走する存在です。
             </p>
-            <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={TRIAL_FORM_URL} target="_blank" rel="noopener noreferrer">
               <button className="btn btn-primary text-white">
                 トライアルを開始
               </button>
