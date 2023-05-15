@@ -35,7 +35,7 @@ const pathname = Astro.url.pathname;
         forward: ["fbq"],
         resolveUrl: function(url: any) {
           if (url.hostname === "connect.facebook.net") {
-            var proxyUrl = new URL('https://my-reverse-proxy.com/');
+            var proxyUrl = new URL('https://www.jetgee.com/');
             proxyUrl.searchParams.append('url', url.href);
             return proxyUrl;
           }
@@ -43,7 +43,6 @@ const pathname = Astro.url.pathname;
         }
       };
     </script>
-    <script async data-cfasync="false" src="/@builder.io/partytown/partytown.js"></script>
 
     <!-- Meta Pixel Code -->
     <script type="text/partytown">
