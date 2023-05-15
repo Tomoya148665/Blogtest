@@ -32,7 +32,6 @@ const pathname = Astro.url.pathname;
       /** @type {import('partytown').Config | undefined} */
       window.partytown = {
         debug: true,
-        forward: ["fbq"],
         resolveUrl: function(url: any) {
           if (url.hostname === "connect.facebook.net") {
             var proxyUrl = new URL('https://www.jetgee.com/');
