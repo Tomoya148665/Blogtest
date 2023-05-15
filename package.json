@@ -47,6 +47,7 @@
     "autoprefixer": "^10.4.13",
     "contentful-typescript-codegen": "^3.4.0",
     "daisyui": "^2.49.0",
-    "postcss": "^8.4.21"
+    "postcss": "^8.4.21",
+    "prettier-plugin-astro": "^0.8.1"
   }
 }
