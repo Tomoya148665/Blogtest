@@ -27,6 +27,24 @@ const pathname = Astro.url.pathname;
       gtag("config", "G-6171DFRMSD");
     </script>
 
+    <!-- Partytown config -->
+    <script>
+      /** @type {import('partytown').Config | undefined} */
+      window.partytown = {
+        debug: true,
+        forward: ["fbq"],
+        resolveUrl: function(url: any) {
+          if (url.hostname === "connect.facebook.net") {
+            var proxyUrl = new URL('https://my-reverse-proxy.com/');
+            proxyUrl.searchParams.append('url', url.href);
+            return proxyUrl;
+          }
+          return url;
+        }
+      };
+    </script>
+    <script async data-cfasync="false" src="/@builder.io/partytown/partytown.js"></script>
+
     <!-- Meta Pixel Code -->
     <script type="text/partytown">
       !function(f,b,e,v,n,t,s)
