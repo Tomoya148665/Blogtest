@@ -25,8 +25,12 @@ export type Article = Entry & {
   __typename?: 'Article';
   content?: Maybe<ArticleContent>;
   contentfulMetadata: ContentfulMetadata;
+  countriesCollection?: Maybe<ArticleCountriesCollection>;
   coverImage?: Maybe<Asset>;
+  description?: Maybe<Scalars['String']>;
+  industriesCollection?: Maybe<ArticleIndustriesCollection>;
   linkedFrom?: Maybe<ArticleLinkingCollections>;
+  relatedArticlesCollection?: Maybe<ArticleRelatedArticlesCollection>;
   slug?: Maybe<Scalars['String']>;
   sys: Sys;
   title?: Maybe<Scalars['String']>;
@@ -40,6 +44,15 @@ export type ArticleContentArgs = {
 
 
 /** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleCountriesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
 export type ArticleCoverImageArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
@@ -47,8 +60,32 @@ export type ArticleCoverImageArgs = {
 
 
 /** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleIndustriesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
 export type ArticleLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/article) */
+export type ArticleRelatedArticlesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -96,6 +133,14 @@ export type ArticleContentLinks = {
   entries: ArticleContentEntries;
 };
 
+export type ArticleCountriesCollection = {
+  __typename?: 'ArticleCountriesCollection';
+  items: Array<Maybe<Country>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
 export type ArticleFilter = {
   AND?: InputMaybe<Array<InputMaybe<ArticleFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ArticleFilter>>>;
@@ -103,7 +148,20 @@ export type ArticleFilter = {
   content_exists?: InputMaybe<Scalars['Boolean']>;
   content_not_contains?: InputMaybe<Scalars['String']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  countries?: InputMaybe<CfCountryNestedFilter>;
+  countriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   coverImage_exists?: InputMaybe<Scalars['Boolean']>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  industries?: InputMaybe<CfIndustryNestedFilter>;
+  industriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  relatedArticles?: InputMaybe<CfArticleNestedFilter>;
+  relatedArticlesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   slug?: InputMaybe<Scalars['String']>;
   slug_contains?: InputMaybe<Scalars['String']>;
   slug_exists?: InputMaybe<Scalars['Boolean']>;
@@ -121,9 +179,26 @@ export type ArticleFilter = {
   title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+export type ArticleIndustriesCollection = {
+  __typename?: 'ArticleIndustriesCollection';
+  items: Array<Maybe<Industry>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
 export type ArticleLinkingCollections = {
   __typename?: 'ArticleLinkingCollections';
+  articleCollection?: Maybe<ArticleCollection>;
   entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ArticleLinkingCollectionsArticleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -148,6 +223,14 @@ export enum ArticleOrder {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC'
 }
+
+export type ArticleRelatedArticlesCollection = {
+  __typename?: 'ArticleRelatedArticlesCollection';
+  items: Array<Maybe<Article>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type Asset = {
@@ -368,6 +451,100 @@ export type ContentfulTag = {
   name?: Maybe<Scalars['String']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/country) */
+export type Country = Entry & {
+  __typename?: 'Country';
+  code?: Maybe<Scalars['String']>;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<CountryLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/country) */
+export type CountryCodeArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/country) */
+export type CountryLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/country) */
+export type CountryNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+export type CountryCollection = {
+  __typename?: 'CountryCollection';
+  items: Array<Maybe<Country>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type CountryFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CountryFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CountryFilter>>>;
+  code?: InputMaybe<Scalars['String']>;
+  code_contains?: InputMaybe<Scalars['String']>;
+  code_exists?: InputMaybe<Scalars['Boolean']>;
+  code_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  code_not?: InputMaybe<Scalars['String']>;
+  code_not_contains?: InputMaybe<Scalars['String']>;
+  code_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type CountryLinkingCollections = {
+  __typename?: 'CountryLinkingCollections';
+  articleCollection?: Maybe<ArticleCollection>;
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type CountryLinkingCollectionsArticleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type CountryLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum CountryOrder {
+  CodeAsc = 'code_ASC',
+  CodeDesc = 'code_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 export type Entry = {
   contentfulMetadata: ContentfulMetadata;
   sys: Sys;
@@ -494,13 +671,95 @@ export type ImageTransformOptions = {
   width?: InputMaybe<Scalars['Dimension']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/industry) */
+export type Industry = Entry & {
+  __typename?: 'Industry';
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<IndustryLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/industry) */
+export type IndustryLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/vvmytyavfefi/content_types/industry) */
+export type IndustryNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+export type IndustryCollection = {
+  __typename?: 'IndustryCollection';
+  items: Array<Maybe<Industry>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type IndustryFilter = {
+  AND?: InputMaybe<Array<InputMaybe<IndustryFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<IndustryFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type IndustryLinkingCollections = {
+  __typename?: 'IndustryLinkingCollections';
+  articleCollection?: Maybe<ArticleCollection>;
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type IndustryLinkingCollectionsArticleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type IndustryLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum IndustryOrder {
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 export type Query = {
   __typename?: 'Query';
   article?: Maybe<Article>;
   articleCollection?: Maybe<ArticleCollection>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
+  country?: Maybe<Country>;
+  countryCollection?: Maybe<CountryCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  industry?: Maybe<Industry>;
+  industryCollection?: Maybe<IndustryCollection>;
 };
 
 
@@ -538,6 +797,23 @@ export type QueryAssetCollectionArgs = {
 };
 
 
+export type QueryCountryArgs = {
+  id: Scalars['String'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryCountryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<CountryOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<CountryFilter>;
+};
+
+
 export type QueryEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -545,6 +821,23 @@ export type QueryEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<EntryFilter>;
+};
+
+
+export type QueryIndustryArgs = {
+  id: Scalars['String'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryIndustryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<IndustryOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<IndustryFilter>;
 };
 
 export type Sys = {
@@ -594,10 +887,80 @@ export type SysFilter = {
   publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
+export type CfArticleNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfArticleNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfArticleNestedFilter>>>;
+  content_contains?: InputMaybe<Scalars['String']>;
+  content_exists?: InputMaybe<Scalars['Boolean']>;
+  content_not_contains?: InputMaybe<Scalars['String']>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  countriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  coverImage_exists?: InputMaybe<Scalars['Boolean']>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  industriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  relatedArticlesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']>;
+  title_contains?: InputMaybe<Scalars['String']>;
+  title_exists?: InputMaybe<Scalars['Boolean']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not?: InputMaybe<Scalars['String']>;
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type CfCountryNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfCountryNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfCountryNestedFilter>>>;
+  code?: InputMaybe<Scalars['String']>;
+  code_contains?: InputMaybe<Scalars['String']>;
+  code_exists?: InputMaybe<Scalars['Boolean']>;
+  code_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  code_not?: InputMaybe<Scalars['String']>;
+  code_not_contains?: InputMaybe<Scalars['String']>;
+  code_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type CfIndustryNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfIndustryNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfIndustryNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
 export type ListArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ListArticlesQuery = { __typename?: 'Query', articleCollection?: { __typename?: 'ArticleCollection', total: number, items: Array<{ __typename?: 'Article', title?: string | null, slug?: string | null, coverImage?: { __typename?: 'Asset', url?: string | null } | null, content?: { __typename?: 'ArticleContent', json: any } | null, sys: { __typename?: 'Sys', id: string } } | null> } | null };
+export type ListArticlesQuery = { __typename?: 'Query', articleCollection?: { __typename?: 'ArticleCollection', total: number, items: Array<{ __typename?: 'Article', title?: string | null, slug?: string | null, coverImage?: { __typename?: 'Asset', url?: string | null } | null, content?: { __typename?: 'ArticleContent', json: any } | null, sys: { __typename?: 'Sys', id: string }, relatedArticlesCollection?: { __typename?: 'ArticleRelatedArticlesCollection', items: Array<{ __typename?: 'Article', title?: string | null, slug?: string | null, coverImage?: { __typename?: 'Asset', url?: string | null } | null, content?: { __typename?: 'ArticleContent', json: any } | null, sys: { __typename?: 'Sys', id: string } } | null> } | null, countriesCollection?: { __typename?: 'ArticleCountriesCollection', items: Array<{ __typename?: 'Country', name?: string | null, code?: string | null } | null> } | null, industriesCollection?: { __typename?: 'ArticleIndustriesCollection', items: Array<{ __typename?: 'Industry', name?: string | null } | null> } | null } | null> } | null };
 
 
 export const ListArticlesDocument = gql`
@@ -614,6 +977,32 @@ export const ListArticlesDocument = gql`
       }
       sys {
         id
+      }
+      relatedArticlesCollection {
+        items {
+          title
+          slug
+          coverImage {
+            url
+          }
+          content {
+            json
+          }
+          sys {
+            id
+          }
+        }
+      }
+      countriesCollection {
+        items {
+          name
+          code
+        }
+      }
+      industriesCollection {
+        items {
+          name
+        }
       }
     }
     total

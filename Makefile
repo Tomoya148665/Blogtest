@@ -1,3 +1,3 @@
 
 dump-graphql-schema:
-	yarn generate
+	yarn generate && yarn contentful-typescript-codegen

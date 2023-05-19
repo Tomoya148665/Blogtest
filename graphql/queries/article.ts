@@ -15,6 +15,32 @@ const LIST_ARTICLES = gql`
         sys {
           id
         }
+        relatedArticlesCollection {
+          items {
+            title
+            slug
+            coverImage {
+              url
+            }
+            content {
+              json
+            }
+            sys {
+              id
+            }
+          }
+        }
+        countriesCollection {
+          items {
+            name
+            code
+          }
+        }
+        industriesCollection {
+          items {
+            name
+          }
+        }
       }
       total
     }

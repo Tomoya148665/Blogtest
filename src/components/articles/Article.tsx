@@ -54,6 +54,7 @@ const Article = ({ article }: PropsType) => {
 
   const blocks = article.fields.content.content;
   const richTextDocument = article.fields.content;
+  const relatedArticles = article.fields.relatedArticles;
 
   return (
     <div className="max-w-4xl mx-auto px-5 lg:px-10 pb-20">
@@ -78,6 +79,20 @@ const Article = ({ article }: PropsType) => {
       <div className="grid gap-y-4 my-7 py-7">
         {documentToReactComponents(richTextDocument, options)}
       </div>
+      {relatedArticles && (
+        <div>
+          <h5>関連記事</h5>
+          {relatedArticles.map(article => {
+            return (
+              <div>
+                <a href={`/media/${article.fields.slug}`} className="link">
+                  {article.fields.title}
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

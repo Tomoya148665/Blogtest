@@ -18,6 +18,15 @@ export interface IArticleFields {
 
   /** description */
   description: string;
+
+  /** related_articles */
+  relatedArticles?: IArticle[] | undefined;
+
+  /** countries */
+  countries?: ICountry[] | undefined;
+
+  /** industries */
+  industries?: IIndustry[] | undefined;
 }
 
 export interface IArticle extends Entry<IArticleFields> {
@@ -37,9 +46,56 @@ export interface IArticle extends Entry<IArticleFields> {
   };
 }
 
-export type CONTENT_TYPE = "article";
+export interface ICountryFields {
+  /** name */
+  name: string;
 
-export type IEntry = IArticle;
+  /** code */
+  code: string;
+}
+
+export interface ICountry extends Entry<ICountryFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "country";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IIndustryFields {
+  /** name */
+  name: string;
+}
+
+export interface IIndustry extends Entry<IIndustryFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "industry";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE = "article" | "country" | "industry";
+
+export type IEntry = IArticle | ICountry | IIndustry;
 
 export type LOCALE_CODE = "en-US";
 

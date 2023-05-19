@@ -8,10 +8,6 @@ type PropsType = {
 const Articles = ({ articles }: PropsType) => {
   const firstArticle = articles[0];
 
-  /* if (!firstArticle || !import.meta.env.DEV) {
-    return <div>準備中</div>;
-  } */
-
   return (
     <div className="max-w-[900px] mx-auto">
       <h1 className="text-4xl font-bold py-10">最新の記事</h1>
@@ -59,6 +55,20 @@ const Articles = ({ articles }: PropsType) => {
                   <h2 className="card-title text-xl">{article.fields.title}</h2>
                   <p>{article.fields.description}</p>
                   <p>{formatDatetimeWithDay(article.sys.createdAt, false)}</p>
+                  {article.fields.countries && (
+                    <div>
+                      {article.fields.countries.map(country => {
+                        return <p>{country.fields.name}</p>;
+                      })}
+                    </div>
+                  )}
+                  {article.fields.industries && (
+                    <div>
+                      {article.fields.industries.map(industry => {
+                        return <p>{industry.fields.name}</p>;
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             </a>
