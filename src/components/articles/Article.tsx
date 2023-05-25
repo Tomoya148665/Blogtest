@@ -44,12 +44,6 @@ const options = {
         </a>
       );
     },
-    [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-      const src = 'https:' + node.data.target.fields.file.url;
-      const height = node.data.target.fields.file.details.height;
-      const width = node.data.target.fields.file.details.width;
-      return <img src={src} width={width} height={height} />;
-    },
   },
 };
 
