@@ -1,40 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
--<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<!-- created with free sitemap generation system www.sitemapxml.jp -->
--<url>
-<loc>https://www.jetgee.com/</loc>
-<priority>1.0</priority>
-<changefreq>weekly</changefreq>
-</url>
--<url>
-<loc>https://www.jetgee.com/media/</loc>
-<priority>1.0</priority>
-<changefreq>weekly</changefreq>
-</url>
--<url>
-<loc>https://www.jetgee.com/media/startups</loc>
-<priority>0.9</priority>
-<changefreq>weekly</changefreq>
-</url>
--<url>
-<loc>https://www.jetgee.com/media/india_G7</loc>
-<priority>0.9</priority>
-<changefreq>weekly</changefreq>
-</url>
--<url>
-<loc>https://www.jetgee.com/media/brasil-g7</loc>
-<priority>0.9</priority>
-<changefreq>weekly</changefreq>
-</url>
--<url>
-<loc>https://www.jetgee.com/media/europe_expansion</loc>
-<priority>0.9</priority>
-<changefreq>weekly</changefreq>
-</url>
--<url>
-<loc>https://www.jetgee.com/media/eu-regulation</loc>
-<priority>0.9</priority>
-<changefreq>weekly</changefreq>
-</url>
+<?xml version="1.0" encoding="UTF-8"?> -
+<urlset
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<!-- created with free sitemap generation system www.sitemapxml.jp --> -
+	<url>
+		<loc>https://www.jetgee.com/</loc>
+		<priority>1.0</priority>
+		<changefreq>weekly</changefreq>
+	</url> -
+	<url>
+		<loc>https://www.jetgee.com/media/</loc>
+		<priority>1.0</priority>
+		<changefreq>weekly</changefreq>
+	</url> -
+	<url>
+		<loc>https://www.jetgee.com/media/startups</loc>
+		<priority>0.9</priority>
+		<changefreq>weekly</changefreq>
+	</url> -
+	<url>
+		<loc>https://www.jetgee.com/media/india_G7</loc>
+		<priority>0.9</priority>
+		<changefreq>weekly</changefreq>
+	</url> -
+	<url>
+		<loc>https://www.jetgee.com/media/brasil-g7</loc>
+		<priority>0.9</priority>
+		<changefreq>weekly</changefreq>
+	</url> -
+	<url>
+		<loc>https://www.jetgee.com/media/europe_expansion</loc>
+		<priority>0.9</priority>
+		<changefreq>weekly</changefreq>
+	</url> -
+	<url>
+		<loc>https://www.jetgee.com/media/eu-regulation</loc>
+		<priority>0.9</priority>
+		<changefreq>weekly</changefreq>
+	</url>
 </urlset>
-
