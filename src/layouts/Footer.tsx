@@ -35,17 +35,6 @@ const Footer = () => {
         </a>
         {/* <a className="link link-hover">Jobs</a> */}
       </div>
-      <div>
-        <span className="footer-title">Legal</span>
-        <p>利用規約（準備中）</p>
-        {false && (
-          <>
-            <a className="link link-hover">利用規約（準備中）</a>
-            <a className="link link-hover">プライバシーポリシー</a>
-            <a className="link link-hover">Cookie policy</a>
-          </>
-        )}
-      </div>
     </footer>
   );
 };

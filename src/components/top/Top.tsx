@@ -144,7 +144,7 @@ const Top = () => {
               </h1>
             </div>
             <p className="mr-5 text-sm lg:text-lg xl:text-xl text-gray-500">
-              jetGee（ジェット・ジー）は海外展開を目指す企業のためのAIクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを最大化します。
+              jetGee（ジェット・ジー）は海外展開を目指す企業のためのAIクラウドサービスです。企業ごと、進出国ごとにパーソナライズされた最新情報や機会を提供し、成功率とスピードを上昇させます。
             </p>
             <div className="flex-col lg:flex-row items-center content-center">
               <a
@@ -225,7 +225,7 @@ const Top = () => {
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16">
               <MeritCard
                 title="海外展開の成功率をUP"
-                content="情報不足による失敗を避けることで海外展開の成功率に寄与します。ネットだけでは収集できない一次情報を独自ネットワークとテクノロジーによって収集します。"
+                content="情報不足による失敗を避けることで海外展開の成功率に寄与します。ネットだけでは収集できない一次情報を弊社が有するネットワークとテクノロジーによって収集します。"
               />
               <MeritCard
                 title="展開速度の上昇"
@@ -251,61 +251,23 @@ const Top = () => {
           </div>
         </div>
       </div>
-      <div className="hero min-h-[80vh] bg-base-100 lg:px-20">
-        <div className="hero-content flex-col w-full py-10 space-y-10">
-          <Header
-            title="さまざまな業界・フェーズで強力なパートナーに"
-            subtitle="ユースケース"
-            content="企業様のフェーズ、業界、進出国、製品ごとにパーソナライズされた情報を提供します。また細かなご要望に合わせてAIをチューニングし、希望の情報のみを抽出します。"
-          />
-          <div className="grid lg:grid-cols-2 w-full gap-10">
-            <UsecaseCard
-              title="海外展開チームのマネージャー"
-              content="「中国で消費者契約法の改正がありました。中国での旅行事業において、利用規約や旅行契約約款の変更の必要に迫られましたが、いち早く情報を取得することができたおかげで、素早く動き出すことができました。」"
-              image="/usecase/usecase1.jpg"
-            />
-            <UsecaseCard
-              title="大手グローバル企業 経営企画"
-              content="「コロナ以後、駐在員の人数を減らしていたため、現地情報の収集に難航していました。jetGee経由で業界特化の情報収集が可能となったため、結果的に駐在員の大幅な業務効率化にもつながりました。」"
-              image="/usecase/usecase4.jpg"
-            />
-            {false && (
-              <UsecaseCard
-                title="経営者・起業家"
-                content="「アメリカの進出にあたり経営陣が先陣を切ってアメリカ拠点に駐在することになりました。煩雑なVISA取得のステップわかりやすくまとまっていて、かつ取得見込みの日付がわかったので大変助かりました。」"
-                image="/usecase/usecase2.jpg"
-              />
-            )}
-            <UsecaseCard
-              title="経営者・起業家"
-              content="「アメリカの進出にあたり経営陣が先陣を切って市場開拓を試みました。早期から少しずつjetGeeを使用して情報収集をしていたので、チームにノウハウやナレッジが蓄積し、スムーズな参入をすることができました。」"
-              image="/usecase/usecase2.jpg"
-            />
-            <UsecaseCard
-              title="バックオフィス"
-              content="「ドイツ進出にあたり、法人設立、銀行口座開設、税務、労務など、何から手をつけて良いかわからない状態でしたが、ドイツ語の最新の手続きをまとめて確認することができたので、実行計画が進めやすかったです。」"
-              image="/usecase/usecase3.jpg"
-            />
-          </div>
-        </div>
-      </div>
       <div className="hero min-h-[80vh] bg-base-200 lg:px-20">
         <div className="hero-content flex-col w-full lg:flex-row gap-10">
           <div className="space-y-5">
             <Header
-              title="独自技術"
+              title="AI技術による自動化・効率化"
               subtitle="テクノロジー"
-              content="jetGee（ジェット・ジー）は海外展開に特化した独自のテクノロジーを活用し、グローバルビジネスを支援します。※ 特許出願中"
+              content="jetGee（ジェット・ジー）はAI技術を活用して情報収集やタスク処理の自動化・効率化を行い、企業の海外展開やグローバルビジネスを支援します。"
             />
             <div className="grid gap-4">
               <Technology
                 title="AIによるデータキュレーション、パーソナライズ化"
-                content="大量の情報を独自のアルゴリズムで解析し、ビジネスに与える影響度や関連性の高い情報のみを集約し、レポーティングをします。Google検索や長いレポートを読むより効率良く情報収集ができます。"
+                content="アルゴリズムによって大量の情報を解析し、ビジネスに与える影響度や関連性の高い情報のみを集約し、レポーティングをします。Google検索や長いレポートを読むより効率良く情報収集ができます。"
                 icon={<FaDatabase size="30" />}
               />
               <Technology
                 title="最新情報ソースとの自動連携"
-                content="全世界に存在する駐在員・現地ネットワークから収集した一次情報と、WEB上に存在するあらゆる情報を統合し、情報を常に最新かつ信頼できるものに保ちます。"
+                content="様々な地域、経済圏の駐在員・現地ネットワークから収集した一次情報と、WEB上の広範な情報を統合し、情報を常に最新かつ信頼できるものに保ちます。"
                 icon={<FaProjectDiagram size="30" />}
               />
               <Technology
@@ -327,7 +289,7 @@ const Top = () => {
         <div className="hero-content text-center">
           <div className="max-w-xl">
             <h1 className="text-3xl lg:text-5xl font-bold">
-              共に世界を目指しましょう
+              貴社の海外展開を促進します
             </h1>
             <p className="py-6">
               jetGeeは海外展開の最初から最後まで常に並走する存在です。
