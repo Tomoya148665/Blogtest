@@ -6,19 +6,19 @@ type PropsType = {
 };
 
 const Articles = ({ articles }: PropsType) => {
-  const firstArticle = articles[0];
+  const lastArticle = articles[articles.length - 1];
 
   return (
     <div className="max-w-[900px] mx-auto">
       <h1 className="text-4xl font-bold py-10">最新の記事</h1>
-      <a href={`/media/${firstArticle.fields.slug}`}>
+      <a href={`/media/${lastArticle.fields.slug}`}>
         <div
-          key={firstArticle.sys.id}
+          key={lastArticle.sys.id}
           className="card w-full bg-base-100 shadow-card flex-row"
         >
           <figure className="min-w-[50%] max-w-[50%]">
             <img
-              src={firstArticle.fields.coverImage.fields.file.url || ""}
+              src={lastArticle.fields.coverImage.fields.file.url || ""}
               alt="Shoes"
             />
           </figure>
@@ -28,10 +28,10 @@ const Articles = ({ articles }: PropsType) => {
             </span>
             <div className="card-body">
               <h2 className="card-title text-3xl">
-                {firstArticle.fields.title}
+                {lastArticle.fields.title}
               </h2>
-              <p>{firstArticle.fields.description}</p>
-              <p>{formatDatetimeWithDay(firstArticle.sys.createdAt, false)}</p>
+              <p>{lastArticle.fields.description}</p>
+              <p>{formatDatetimeWithDay(lastArticle.sys.createdAt, false)}</p>
             </div>
           </div>
         </div>
@@ -62,13 +62,7 @@ const Articles = ({ articles }: PropsType) => {
                       })}
                     </div>
                   )}
-                  {article.fields.industries && (
-                    <div>
-                      {article.fields.industries.map(industry => {
-                        return <p>{industry.fields.name}</p>;
-                      })}
-                    </div>
-                  )}
+
                 </div>
               </div>
             </a>
