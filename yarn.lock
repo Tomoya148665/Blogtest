@@ -867,24 +867,24 @@
   integrity sha512-snXIGNiZpqjno3XYQN2lbBB+05hsQR/LSttbtIW1c0gmZ7Kh/DIo0YrxlDxCDulAMFPFM8J+4voLwvYepSj3sw==
 
 "@contentful/rich-text-html-renderer@^16.0.2":
-  version "16.0.4"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-16.0.4.tgz#eaae8557c41ae044fbf938d6a376e8f8e2bbb8d3"
-  integrity sha512-7VPU+iuAoYhAdqm4FhzdmVLii2NJ83fd70ZoagDZQ+Cw6ixmeiBRgtprjvRjKP8GE9qJjhpDp5y2ddMyNx7l3Q==
+  version "16.1.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-16.1.0.tgz#f0ff32204c44a4c1997dee0e99b925534403f5b2"
+  integrity sha512-U50mWxWysQQYWWL2fL1ExUA2r+543LaggNizb3O61ay2Y0ypyf+D6+oxGIx56WHRffwzXW0dSoP/giXmOvWB/w==
   dependencies:
-    "@contentful/rich-text-types" "^16.1.0"
+    "@contentful/rich-text-types" "^16.2.0"
     escape-html "^1.0.3"
 
 "@contentful/rich-text-react-renderer@^15.16.2":
-  version "15.16.4"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-15.16.4.tgz#30b157b3340cc981f999c74cd1e229a021b268f2"
-  integrity sha512-Z+HlJBuCU61QbWMvmSJ7MoyHI/WS8mEURiliITMVAnW+IDD3he8Qo9yEIrTmFtXiJ5VmdPRbAaKgBF3znZ8a7g==
+  version "15.17.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-15.17.0.tgz#88b6c707eec5d0d45491be830f0cfb1a0fae9472"
+  integrity sha512-6dmfzq67eR2Pd4od1WMTWgatO0A873msb/hSFSgAEUwXyS3TjIQAFLfvPA3r6jPy6M5A26wUkfQ3I9caSHyqrw==
   dependencies:
-    "@contentful/rich-text-types" "^16.1.0"
+    "@contentful/rich-text-types" "^16.2.0"
 
-"@contentful/rich-text-types@^16.0.2", "@contentful/rich-text-types@^16.1.0":
-  version "16.1.0"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.1.0.tgz#2eea32439790abf857992167df68e82734934a3a"
-  integrity sha512-Pucb68FK0j9cHJ96FAewXv+bvH4XizC4KBbVqyHhPLkDIVfasj0AWU5rI1lnvysdVKu66NQkFe8xZdeFTkaLWQ==
+"@contentful/rich-text-types@^16.0.2", "@contentful/rich-text-types@^16.2.0":
+  version "16.2.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.2.0.tgz#5a98cb119340f4da46555216913e96d7ce58df70"
+  integrity sha512-4BHC+mfa50JB70epzpnas4EkiuB3mGdBZ5Rp8w7R5wXvswEf8TLg5yGau2FxmZeEjrAkDrt4vzBLVQ8v3Y//Jw==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
@@ -5859,11 +5859,6 @@ slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
-
-slash@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
-  integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
 slice-ansi@^3.0.0:
   version "3.0.0"
