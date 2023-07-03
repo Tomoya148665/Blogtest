@@ -6,19 +6,21 @@ type PropsType = {
 };
 
 const Articles = ({ articles }: PropsType) => {
-  const lastArticle = articles[articles.length - 1];
+  const latestArticle = articles.sort((a, b) => {
+    return new Date(b.sys.createdAt) - new Date(a.sys.createdAt);
+  })[0];
 
   return (
     <div className="max-w-[900px] mx-auto">
       <h1 className="text-4xl font-bold py-10">最新の記事</h1>
-      <a href={`/media/${lastArticle.fields.slug}`}>
+      <a href={`/media/${latestArticle.fields.slug}`}>
         <div
-          key={lastArticle.sys.id}
+          key={latestArticle.sys.id}
           className="card w-full bg-base-100 shadow-card flex-row"
         >
           <figure className="min-w-[50%] max-w-[50%]">
             <img
-              src={lastArticle.fields.coverImage.fields.file.url || ""}
+              src={latestArticle.fields.coverImage.fields.file.url || ""}
               alt="Shoes"
             />
           </figure>
@@ -28,10 +30,10 @@ const Articles = ({ articles }: PropsType) => {
             </span>
             <div className="card-body">
               <h2 className="card-title text-3xl">
-                {lastArticle.fields.title}
+                {latestArticle.fields.title}
               </h2>
-              <p>{lastArticle.fields.description}</p>
-              <p>{formatDatetimeWithDay(lastArticle.sys.createdAt, false)}</p>
+              <p>{latestArticle.fields.description}</p>
+              <p>{formatDatetimeWithDay(latestArticle.sys.createdAt, false)}</p>
             </div>
           </div>
         </div>
@@ -62,7 +64,13 @@ const Articles = ({ articles }: PropsType) => {
                       })}
                     </div>
                   )}
-
+                    {article.fields.industries && (
+                    <div>
+                      {article.fields.industries.map(industry => {
+                        return <p>{industry.fields.name}</p>;
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             </a>
