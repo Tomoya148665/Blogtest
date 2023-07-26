@@ -13,7 +13,7 @@ const LastMessage = () => {
           </p>
           <a href={TRIAL_FORM_URL} target="_blank" rel="noopener noreferrer">
             <button className="btn btn-primary text-white">
-              無料トライアルを開始
+              ウェイトリスト登録
             </button>
           </a>
         </div>

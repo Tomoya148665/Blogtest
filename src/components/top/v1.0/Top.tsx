@@ -289,7 +289,7 @@ const Top = () => {
         <div className="hero-content text-center">
           <div className="max-w-xl">
             <h1 className="text-3xl lg:text-5xl font-bold">
-              貴社の海外展開を促進します
+              海外展開を加速するAI
             </h1>
             <p className="py-6">
               jetGeeは海外展開の最初から最後まで常に並走する存在です。

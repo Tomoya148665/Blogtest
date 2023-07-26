@@ -29,7 +29,7 @@ const FirstView = () => {
           <div className="flex lg:flex-row items-center content-center">
             <a href={TRIAL_FORM_URL} target="_blank" rel="noopener noreferrer">
               <button className="btn-primary btn-lg text-white">
-                無料トライアルを開始
+                ウェイトリスト登録
               </button>
             </a>
             {false && (
