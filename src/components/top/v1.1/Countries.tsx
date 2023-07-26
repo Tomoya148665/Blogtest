@@ -32,7 +32,7 @@ const Country = ({ code }: { code: keyof typeof COUNTRIES }) => {
 
 const Countries = () => {
   return (
-    <div className="hero min-h-[10vh] bg-base-100 pb-10 lg:pb-20 pt-0 lg:pt-10 lg:px-20 hidden lg:block">
+    <div className="hero min-h-[10vh] bg-base-100 pb-10 lg:pb-20 pt-0 lg:pt-10 lg:px-20 hidden lg:flex lg:justify-center">
       <div className="hero-content flex-col items-start">
         <p className="text-primary font-bold">対応国一覧（一部）</p>
         <div className="grid grid-cols-10 w-full gap-1 lg:gap-10">
