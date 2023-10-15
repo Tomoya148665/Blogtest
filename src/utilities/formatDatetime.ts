@@ -1,20 +1,23 @@
-import { formatISO, parseISO, format } from "date-fns";
-import ja from "date-fns/locale/ja/index.js";
+import { format, parseISO } from "date-fns";
+
+export const formatToYYYYMMDD = (datetime: string): string => {
+  const dateObject =
+    typeof datetime === "string" ? parseISO(datetime) : datetime;
+  return format(dateObject, "yyyy-MM-dd");
+};
 
 export const formatDatetime = (datetime: string, withTime = true): string =>
   new Intl.DateTimeFormat("ja-JP", {
     dateStyle: "medium",
     timeStyle: withTime ? "short" : undefined,
-    // Safari対応 https://github.com/w3c/respec/issues/1357#issuecomment-760913749
   }).format(new Date(datetime));
 
 export const formatDatetimeWithDay = (
   datetime: string,
   withTime = true
 ): string => {
-  // Safari対応 https://github.com/w3c/respec/issues/1357#issuecomment-760913749
-  const time = new Date(datetime);
-  const output = format(time, "yyyy年MM月dd日(eee)", { locale: ja });
+  const time = typeof datetime === "string" ? parseISO(datetime) : datetime;
+  const output = format(time, "yyyy年MM月dd日(eee)");
 
   return withTime ? `${output} ${format(time, "HH:mm")}` : output;
 };
@@ -31,5 +34,5 @@ export const ISODateTimeToDateString = (
 
   return withoutDay
     ? format(dateTime, "yyyy-MM")
-    : formatISO(dateTime, { representation: "date" });
+    : format(dateTime, "yyyy-MM-dd");
 };

@@ -10,7 +10,7 @@ const Layout = ({ pathname, children }: PropsType) => {
   const firstPath = pathname.split("/")[1];
   return (
     <div className="bg-white">
-      <div className="navbar bg-white shadow-sm hidden md:flex">
+      <div className="navbar bg-white shadow-sm">
         <div className="flex-1">
           {firstPath === "media" && (
             <a href="/">
@@ -19,7 +19,7 @@ const Layout = ({ pathname, children }: PropsType) => {
           )}
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1 hidden md:flex">
+          <ul className="menu menu-horizontal px-1">
             {firstPath === "media" && (
               <li>
                 <a href="/">プロダクト</a>

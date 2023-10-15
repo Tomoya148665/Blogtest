@@ -1,16 +1,12 @@
 ---
 import { contentfulClient } from "@lib/contentful";
 import Layout from "@layouts/Layout.astro";
-import Articles from "@components/articles/Articles";
 import type { IArticle } from "types/contentful";
+import {FetchedArticles, FetchedCategories} from "@lib/contentful"
+import Collectview from "@components/media/Collectview"
 
-const entries = await contentfulClient.getEntries({
-  content_type: "article",
-  order: "sys.createdAt",
-});
 ---
 
 <Layout>
-  <!-- TODO: 型解決する -->
-  {entries.items && <Articles articles={entries.items as IArticle[]} />}
+    <Collectview articles={FetchedArticles} categories={FetchedCategories}/>
 </Layout>
