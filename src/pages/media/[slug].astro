@@ -2,14 +2,13 @@
 import { contentfulClient } from "@lib/contentful";
 import type { Article as ArticleType } from "types/generated";
 import Layout from "@layouts/Layout.astro";
-import Article from "@components/articles/Article";
-import type { IArticle } from "types/contentful";
-import TableOfContents from "@components/organisms/TableOfContents";
+import Singleview from "@components/media/Singleview";
 
 export async function getStaticPaths() {
   const { items } = await contentfulClient.getEntries<ArticleType>({
-    content_type: "article",
+    content_type: "blogPage",
   });
+  console.log(items);
   const pages = items.map((item) => ({
     params: { slug: item.fields.slug },
     props: {
@@ -19,13 +18,10 @@ export async function getStaticPaths() {
   return pages;
 }
 
-interface Props {
-  article: IArticle;
-}
 
 const { article } = Astro.props;
 ---
 
 <Layout>
-  <Article article={article} />
+  <Singleview article={article} />
 </Layout>
